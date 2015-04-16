@@ -21,9 +21,12 @@ public class Library {
 
     public String getBookList() {
         StringBuilder sb = new StringBuilder();
+        int i = 1;
         for(Book book : books) {
-            sb.append(book.toString())
-                    .append("\n");
+            sb.append(" " + i + " | ");
+            sb.append(book.toString());
+            sb.append("\n");
+            i++;
         }
         return sb.toString();
     }
