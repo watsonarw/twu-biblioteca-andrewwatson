@@ -31,6 +31,18 @@ public class Library {
         return sb.toString();
     }
 
+    public String getCheckedOutBookList() {
+        StringBuilder sb = new StringBuilder();
+        for(Book book : books) {
+            if (book.isCheckedOut()) {
+                sb.append(" " + (books.indexOf(book) + 1) + " | ");
+                sb.append(book.toString());
+                sb.append("\n");
+            }
+        }
+        return sb.toString();
+    }
+
     public void checkoutBook(int bookId) {
         if (bookExists(bookId)) {
             books.get(bookId - 1).checkoutBook();

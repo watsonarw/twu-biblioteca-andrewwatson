@@ -32,14 +32,14 @@ public class CheckOutBookItemTest {
 
     @Test
     public void testCheckoutCommandChecksOutBook() {
-        nextInputAs("1\n");
+        AllTests.nextInputAs("1\n");
         CheckOutBookItem.instance.action();
         assertEquals(true, BibliotecaApp.getLibrary().isBookCheckedOut(1));
     }
 
     @Test
     public void testCheckoutCommandDisplaysSuccessMessageWhenSuccessful() {
-        nextInputAs(("2\n"));
+        AllTests.nextInputAs(("2\n"));
         CheckOutBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.SUCCESSFUL_CHECKOUT_MESSAGE);
         assertEquals(true, stringContains);
@@ -50,17 +50,19 @@ public class CheckOutBookItemTest {
         AllTests.nextInputAs(("1\n"));
         CheckOutBookItem.instance.action();
         outStream.reset();
-        nextInputAs(("1\n"));
+        AllTests.nextInputAs(("1\n"));
         CheckOutBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.UNSUCCESSFUL_CHECKOUT_MESSAGE);
         assertEquals(true, stringContains);
     }
 
 
-
-    private static void nextInputAs(String s) {
-        ByteArrayInputStream inStream = new ByteArrayInputStream(s.getBytes());
-        System.setIn(inStream);
-        BibliotecaApp.setTesting(false);
+    @Test
+    public void testCheckoutCommandDisplaysFailureMessageWhenBookDoesntExist() {
+        AllTests.nextInputAs(("99\n"));
+        CheckOutBookItem.instance.action();
+        boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.UNSUCCESSFUL_CHECKOUT_MESSAGE);
+        assertEquals(true, stringContains);
     }
+
 }
