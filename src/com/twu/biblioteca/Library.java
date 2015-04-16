@@ -32,7 +32,9 @@ public class Library {
     }
 
     public void checkoutBook(int bookId) {
-        books.get(bookId-1).checkoutBook();
+        if (bookExists(bookId)) {
+            books.get(bookId - 1).checkoutBook();
+        }
     }
 
     public boolean isBookCheckedOut(int bookId) {
@@ -46,6 +48,12 @@ public class Library {
             return false;
         }
         return true;
+    }
+
+    public void returnBook(int bookId) {
+        if (bookExists(bookId)) {
+            books.get(bookId -1).returnBook();
+        }
     }
 
 }

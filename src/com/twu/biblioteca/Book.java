@@ -28,4 +28,6 @@ public class Book {
 
     public boolean isCheckedOut() {return checkedOut;}
 
+    public void returnBook() { this.checkedOut = false; }
+
 }

@@ -16,10 +16,19 @@ public class BookTest {
     }
 
     @Test
-    public void testCheckedOutBookDisplaysAsEmptyString() {
+    public void testBookCanBeCheckedOut() {
         Book book = new Book("To Kill a Mockingbird", "Harper Lee", 1960);
         book.checkoutBook();
         assertEquals(true, book.isCheckedOut());
+    }
+
+    @Test
+    public void testBookCanBeReturned() {
+        Book book = new Book("To Kill a Mockingbird", "Harper Lee", 1960);
+        book.checkoutBook();
+        assertEquals(true, book.isCheckedOut());
+        book.returnBook();
+        assertEquals(false, book.isCheckedOut());
     }
 
 }

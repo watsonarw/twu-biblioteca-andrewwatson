@@ -34,4 +34,39 @@ public class LibraryTest {
         library.checkoutBook(2);
         assertEquals(" 1 | The Hobbit - J.R.R. Tolkien, 1937\n 3 | Catcher in the Rye - J.D. Salinger, 1951\n",library.getBookList());
     }
+
+    @Test
+    public void testBookCanBeCheckedOut() {
+        Library library = new Library();
+        library.addBook("The Hobbit", "J.R.R. Tolkien", 1937);
+        library.addBook("Nineteen Eighty Four", "George Orwell", 1949);
+        library.addBook("Catcher in the Rye", "J.D. Salinger", 1951);
+        library.checkoutBook(2);
+        assertEquals(true, library.isBookCheckedOut(2));
+    }
+
+    @Test
+    public void testBookCanBeReturned() {
+        Library library = new Library();
+        library.addBook("The Hobbit", "J.R.R. Tolkien", 1937);
+        library.addBook("Nineteen Eighty Four", "George Orwell", 1949);
+        library.addBook("Catcher in the Rye", "J.D. Salinger", 1951);
+        library.checkoutBook(2);
+        assertEquals(true, library.isBookCheckedOut(2));
+        library.returnBook(2);
+        assertEquals(false, library.isBookCheckedOut(2));
+    }
+
+
+    @Test
+    public void testReturnedBooksDoShowInLibrary() {
+        Library library = new Library();
+        library.addBook("The Hobbit", "J.R.R. Tolkien", 1937);
+        library.addBook("Nineteen Eighty Four", "George Orwell", 1949);
+        library.addBook("Catcher in the Rye", "J.D. Salinger", 1951);
+        library.checkoutBook(2);
+        assertEquals(" 1 | The Hobbit - J.R.R. Tolkien, 1937\n 3 | Catcher in the Rye - J.D. Salinger, 1951\n", library.getBookList());
+        library.returnBook(2);
+        assertEquals(" 1 | The Hobbit - J.R.R. Tolkien, 1937\n 2 | Nineteen Eighty Four - George Orwell, 1949\n 3 | Catcher in the Rye - J.D. Salinger, 1951\n", library.getBookList());
+    }
 }
