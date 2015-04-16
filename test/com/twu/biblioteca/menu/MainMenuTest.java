@@ -34,8 +34,8 @@ public class MainMenuTest {
     public void testDisplayMainMenu() {
         String expected = "------ Main Menu ------\n" +
                           "Select an option below:\n" +
-                          " 0 | Quit\n" +
-                          " 1 | List Books\n";
+                          " 1 | List Books\n" +
+                          " Q | Quit\n";
         MainMenu menu = MainMenu.instance;
         menu.show();
         assertEquals(expected, outStream.toString());
@@ -52,7 +52,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void testSelectionOtherThanOneShowsInvalidMessage() {
+    public void testInvalidSelectionShowsInvalidMessage() {
         String expected = MainMenu.INVALID_INPUT_MESSAGE;
         MainMenu menu = MainMenu.instance;
         AllTests.nextInputAs("S\n");
@@ -65,7 +65,7 @@ public class MainMenuTest {
     public void testSelectionZeroThrowsRuntimeExceptionToQuit()
     {
         MainMenu menu = MainMenu.instance;
-        AllTests.nextInputAs("0\n");
+        AllTests.nextInputAs("Q\n");
         menu.handleResponse();
 
     }
