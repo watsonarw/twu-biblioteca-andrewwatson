@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 
 /**
  * Created by watsonarw on 16/04/15.
@@ -10,15 +11,23 @@ import java.io.InputStreamReader;
 public class MainMenu {
 
     public static MainMenu instance = new MainMenu();
+    private HashMap<Integer, String> menuOptions = new HashMap<Integer, String>();
 
     public static final String INVALID_INPUT_MESSAGE = "The input you've entered is invalid, please try again.\n";
 
-    private MainMenu(){ }
+    private MainMenu(){
+        menuOptions.put(1, "List Books");
+    }
 
     public void show() {
-        System.out.print("------ Main Menu ------\n" +
-                           "Select an option below:\n" +
-                           " 1 | List Books\n");
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("------ Main Menu ------\n" +
+                "Select an option below:\n");
+        for (Integer key: menuOptions.keySet()) {
+            sb.append(" " + key + " | " + menuOptions.get(key) + "\n");
+        }
+        System.out.print(sb.toString());
     }
 
     public void handleResponse() {
