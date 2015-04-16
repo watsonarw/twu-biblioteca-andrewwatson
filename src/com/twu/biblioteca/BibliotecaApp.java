@@ -2,21 +2,33 @@ package com.twu.biblioteca;
 
 public class BibliotecaApp {
 
+    private static Library library;
+
     public static void main(String[] args) {
         displayWelcomeMessage();
+        setupLibrary();
         displayListOfBooks();
     }
 
+    private static void setupLibrary() {
+        library = new Library();
+        library.addBook("The Lord of The Rings");
+        library.addBook("To Kill a Mockingbird");
+        library.addBook("Nineteen Eighty Four");
+        library.addBook("Pride and Prejudice");
+        library.addBook("His Dark Materials");
+    }
+
     private static void displayWelcomeMessage() {
-        System.out.println("Welcome to Biblioteca.");
+        print("Welcome to Biblioteca.\n");
     }
 
     private static void displayListOfBooks() {
-        System.out.println( "The Lord of The Rings\n" +
-                            "To Kill a Mockingbird\n" +
-                            "Nineteen Eighty Four\n" +
-                            "Pride and Prejudice\n" +
-                            "His Dark Materials"
-                        );
+        String bookList = library.getBookList();
+        print(bookList);
+    }
+
+    private static void print(String bookList) {
+        System.out.print(bookList);
     }
 }
