@@ -11,6 +11,7 @@ public class CheckOutBookItem extends AbstractMenuItem{
 
     public static AbstractMenuItem instance = new CheckOutBookItem();
 
+    public static final String CHECK_OUT_INSTRUCTION = "Which book below would you like to check out:\n";
     public static final String SUCCESSFUL_CHECKOUT_MESSAGE = "Thank you! Enjoy the book\n";
     public static final String UNSUCCESSFUL_CHECKOUT_MESSAGE = "That book is not available.\n";
 
@@ -20,7 +21,7 @@ public class CheckOutBookItem extends AbstractMenuItem{
 
     @Override
     public void action() {
-        BibliotecaApp.print("Which book below would you like to check out:\n" +
+        BibliotecaApp.print( CHECK_OUT_INSTRUCTION +
                 BibliotecaApp.getLibrary().getBookList());
         try {
             String response = BibliotecaApp.readLine();

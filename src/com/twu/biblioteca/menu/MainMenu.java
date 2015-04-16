@@ -21,6 +21,7 @@ public class MainMenu {
         menuOptions.put("1", ListBooksItem.instance);
         menuOptions.put("Q", QuitItem.instance);
         menuOptions.put("2", CheckOutBookItem.instance);
+        menuOptions.put("3", ReturnBookItem.instance);
     }
 
     public void show() {

@@ -35,7 +35,9 @@ public class MainMenuTest {
                           "Select an option below:\n" +
                           " 1 | List Books\n" +
                           " Q | Quit\n" +
-                          " 2 | Checkout Book\n";
+                          " 2 | Checkout Book\n" +
+                          " 3 | Return Book\n";
+
         MainMenu menu = MainMenu.instance;
         menu.show();
         assertEquals(expected, outStream.toString());
@@ -68,6 +70,26 @@ public class MainMenuTest {
         AllTests.nextInputAs("Q\n");
         menu.handleResponse();
     }
+
+
+    @Test
+    public void testSelection2CallsCheckOutCommand() {
+        MainMenu menu = MainMenu.instance;
+        AllTests.nextInputAs("2\n");
+        menu.handleResponse();
+        boolean stringContains = outStream.toString().startsWith(CheckOutBookItem.CHECK_OUT_INSTRUCTION);
+        assertEquals(true, stringContains);
+    }
+
+    @Test
+    public void testSelection3CallsReturnCommand() {
+        MainMenu menu = MainMenu.instance;
+        AllTests.nextInputAs("3\n");
+        menu.handleResponse();
+        boolean stringContains = outStream.toString().startsWith(ReturnBookItem.RETURN_INSTRUCTION);
+        assertEquals(true, stringContains);
+    }
+
 
 
 }
