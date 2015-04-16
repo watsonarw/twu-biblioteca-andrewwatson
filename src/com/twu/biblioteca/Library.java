@@ -21,14 +21,18 @@ public class Library {
 
     public String getBookList() {
         StringBuilder sb = new StringBuilder();
-        int i = 1;
         for(Book book : books) {
-            sb.append(" " + i + " | ");
-            sb.append(book.toString());
-            sb.append("\n");
-            i++;
+            if (!book.isCheckedOut()) {
+                sb.append(" " + (books.indexOf(book) + 1) + " | ");
+                sb.append(book.toString());
+                sb.append("\n");
+            }
         }
         return sb.toString();
+    }
+
+    public void checkoutBook(int bookId) {
+        books.get(bookId-1).checkoutBook();
     }
 
 }

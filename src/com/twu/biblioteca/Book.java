@@ -9,6 +9,8 @@ public class Book {
     private String author;
     private int year;
 
+    private boolean checkedOut = false;
+
     public Book(String title, String author, int year) {
         this.title = title;
         this.author = author;
@@ -19,5 +21,11 @@ public class Book {
     public String toString() {
         return title + " - " + author + ", " + year;
     }
+
+    public void checkoutBook() {
+        this.checkedOut = true;
+    }
+
+    public boolean isCheckedOut() {return checkedOut;}
 
 }
