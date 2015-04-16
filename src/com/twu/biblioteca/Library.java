@@ -35,4 +35,8 @@ public class Library {
         books.get(bookId-1).checkoutBook();
     }
 
+    public boolean isBookCheckedOut(int bookId) {
+        return books.get(bookId-1).isCheckedOut();
+    }
+
 }

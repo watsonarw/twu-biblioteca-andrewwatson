@@ -2,6 +2,10 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.menu.MainMenu;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class BibliotecaApp {
 
     private static Library library;
@@ -9,10 +13,16 @@ public class BibliotecaApp {
 
     private static boolean testing = false; //Used to prevent infinite loop during unit tests
 
+    private static BufferedReader consoleInput = new BufferedReader(new InputStreamReader(System.in));
+
     public static void main(String[] args) {
         displayWelcomeMessage();
         setupLibrary();
         menuLoop();
+    }
+
+    public static String readLine() throws IOException {
+        return consoleInput.readLine();
     }
 
     public static void menuLoop() {
@@ -32,7 +42,6 @@ public class BibliotecaApp {
     }
 
 
-    //TODO exposed public for the purpose of unit testing, it feels weird to do this
     public static Library getLibrary() {
         if (library == null) {
             setupLibrary();
@@ -49,8 +58,8 @@ public class BibliotecaApp {
         print(bookList);
     }
 
-    public static void print(String bookList) {
-        System.out.print(bookList);
+    public static void print(String str) {
+        System.out.print(str);
     }
 
     public static void setTesting(boolean testing) {

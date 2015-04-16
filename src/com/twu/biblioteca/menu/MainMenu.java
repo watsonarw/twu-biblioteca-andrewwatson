@@ -20,6 +20,7 @@ public class MainMenu {
     private MainMenu(){
         menuOptions.put("1", ListBooksItem.instance);
         menuOptions.put("Q", QuitItem.instance);
+        menuOptions.put("2", CheckOutBookItem.instance);
     }
 
     public void show() {
