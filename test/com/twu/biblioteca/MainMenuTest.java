@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -25,6 +26,7 @@ public class MainMenuTest {
     @After
     public void tearDown() {
         System.setOut(null);
+        System.setIn(System.in);
     }
 
     @Test
@@ -35,5 +37,20 @@ public class MainMenuTest {
         MainMenu menu = new MainMenu();
         menu.show();
         assertEquals(expected, outStream.toString());
+    }
+
+    @Test
+    public void testSelectionOneShowsListOfBooks() {
+        String expected = BibliotecaApp.getLibrary().getBookList();
+        MainMenu menu = new MainMenu();
+        nextInputAs("1\n");
+        menu.handleResponse();
+
+        assertEquals(expected, outStream.toString());
+    }
+
+    private void nextInputAs(String s) {
+        ByteArrayInputStream inStream = new ByteArrayInputStream(s.getBytes());
+        System.setIn(inStream);
     }
 }
