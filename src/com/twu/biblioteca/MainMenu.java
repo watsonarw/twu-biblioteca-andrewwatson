@@ -40,9 +40,8 @@ public class MainMenu {
                     System.out.print(BibliotecaApp.getLibrary().getBookList());
                     break;
                 case 0:
-                    System.exit(0);
                     System.out.print("Goodbye.");
-                    break;
+                    throw new RuntimeException();
                 default:
                     System.out.print(INVALID_INPUT_MESSAGE);
             }

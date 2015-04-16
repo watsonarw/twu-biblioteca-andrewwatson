@@ -5,6 +5,8 @@ public class BibliotecaApp {
     private static Library library;
     private static MainMenu menu = MainMenu.instance;
 
+    private static boolean testing = false; //Used to prevent infinite loop during unit tests
+
     public static void main(String[] args) {
         displayWelcomeMessage();
         setupLibrary();
@@ -12,7 +14,7 @@ public class BibliotecaApp {
     }
 
     public static void menuLoop() {
-            while (true) {
+            while (!testing) {
                 menu.show();
                 menu.handleResponse();
             }
@@ -47,5 +49,9 @@ public class BibliotecaApp {
 
     public static void print(String bookList) {
         System.out.print(bookList);
+    }
+
+    public static void setTesting(boolean testing) {
+        BibliotecaApp.testing = testing;
     }
 }

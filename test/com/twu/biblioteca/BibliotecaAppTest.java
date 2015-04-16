@@ -30,6 +30,7 @@ public class BibliotecaAppTest {
         String expected = "Welcome to Biblioteca.";
 
         AllTests.nextInputAs("1\n\n");
+        BibliotecaApp.setTesting(true);
         BibliotecaApp.main(null);
         String output = outStream.toString();
         int lineLength = output.indexOf("\n");

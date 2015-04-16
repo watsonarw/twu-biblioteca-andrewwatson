@@ -22,6 +22,7 @@ public class AllTests {
     public static void nextInputAs(String s) {
         ByteArrayInputStream inStream = new ByteArrayInputStream(s.getBytes());
         System.setIn(inStream);
+        BibliotecaApp.setTesting(false);
     }
 
     public static void commonTearDown() {

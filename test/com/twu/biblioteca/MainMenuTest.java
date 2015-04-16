@@ -1,10 +1,12 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.AllTests;
+import com.twu.biblioteca.BibliotecaApp;
+import com.twu.biblioteca.MainMenu;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -59,5 +61,13 @@ public class MainMenuTest {
         assertEquals(expected, outStream.toString());
     }
 
-    
+    @Test(expected = RuntimeException.class)
+    public void testSelectionZeroThrowsRuntimeExceptionToQuit()
+    {
+        MainMenu menu = MainMenu.instance;
+        AllTests.nextInputAs("0\n");
+        menu.handleResponse();
+
+    }
+
 }
