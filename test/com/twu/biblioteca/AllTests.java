@@ -12,7 +12,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         BibliotecaAppTest.class,
         LibraryTest.class,
-        BookTest.class
+        BookTest.class,
+        MainMenuTest.class
 })
 public class AllTests {
 
