@@ -24,9 +24,11 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void testWelcomeMessage() {
-        String expected = "Welcome to Biblioteca.\n";
+    public void testWelcomeMessageOnFirstLine() {
+        String expected = "Welcome to Biblioteca.";
         BibliotecaApp.main(null);
-        assertEquals(expected, outStream.toString());
+        String output = outStream.toString();
+        int lineLength = output.indexOf("\n");
+        assertEquals(expected, output.substring(0, lineLength));
     }
 }
