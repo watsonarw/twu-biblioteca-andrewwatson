@@ -12,11 +12,11 @@ public class BibliotecaApp {
 
     private static void setupLibrary() {
         library = new Library();
-        library.addBook("The Lord of The Rings");
-        library.addBook("To Kill a Mockingbird");
-        library.addBook("Nineteen Eighty Four");
-        library.addBook("Pride and Prejudice");
-        library.addBook("His Dark Materials");
+        library.addBook("The Lord of The Rings", "J.R.R. Tolkien", 1954);
+        library.addBook("To Kill a Mockingbird", "Harper Lee", 1960);
+        library.addBook("Nineteen Eighty Four", "George Orwell", 1949);
+        library.addBook("Pride and Prejudice", "Jane Austin", 1813);
+        library.addBook("His Dark Materials", "Philip Pullman", 1995);
     }
 
 
