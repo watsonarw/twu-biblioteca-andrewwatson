@@ -3,11 +3,17 @@ package com.twu.biblioteca;
 public class BibliotecaApp {
 
     private static Library library;
+    private static MainMenu menu = MainMenu.instance;
 
     public static void main(String[] args) {
         displayWelcomeMessage();
         setupLibrary();
-        displayListOfBooks();
+        menuLoop();
+    }
+
+    public static void menuLoop() {
+            menu.show();
+            menu.handleResponse();
     }
 
     private static void setupLibrary() {
@@ -37,7 +43,7 @@ public class BibliotecaApp {
         print(bookList);
     }
 
-    private static void print(String bookList) {
+    public static void print(String bookList) {
         System.out.print(bookList);
     }
 }
