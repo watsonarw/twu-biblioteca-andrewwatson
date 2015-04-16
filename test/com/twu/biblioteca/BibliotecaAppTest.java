@@ -34,11 +34,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void testListBooks() {
-        String expected =   "The Lord of The Rings\n" +
-                            "To Kill a Mockingbird\n" +
-                            "Nineteen Eighty Four\n" +
-                            "Pride and Prejudice\n" +
-                            "His Dark Materials\n";
+        String expected =   BibliotecaApp.getLibrary().getBookList();
         BibliotecaApp.main(null);
         String output = outStream.toString();
         //ignore first line

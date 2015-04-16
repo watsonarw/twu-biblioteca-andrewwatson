@@ -19,6 +19,15 @@ public class BibliotecaApp {
         library.addBook("His Dark Materials");
     }
 
+
+    //TODO exposed public for the purpose of unit testing, it feels weird to do this
+    public static Library getLibrary() {
+        if (library == null) {
+            setupLibrary();
+        }
+        return library;
+    }
+
     private static void displayWelcomeMessage() {
         print("Welcome to Biblioteca.\n");
     }
