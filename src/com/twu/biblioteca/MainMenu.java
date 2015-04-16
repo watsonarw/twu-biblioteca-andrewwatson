@@ -17,6 +17,7 @@ public class MainMenu {
 
     private MainMenu(){
         menuOptions.put(1, "List Books");
+        menuOptions.put(0, "Quit");
     }
 
     public void show() {
@@ -37,6 +38,10 @@ public class MainMenu {
             switch (Integer.parseInt(response)) {
                 case 1:
                     System.out.print(BibliotecaApp.getLibrary().getBookList());
+                    break;
+                case 0:
+                    System.exit(0);
+                    System.out.print("Goodbye.");
                     break;
                 default:
                     System.out.print(INVALID_INPUT_MESSAGE);

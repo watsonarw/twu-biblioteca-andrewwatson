@@ -32,7 +32,8 @@ public class MainMenuTest {
     public void testDisplayMainMenu() {
         String expected = "------ Main Menu ------\n" +
                           "Select an option below:\n" +
-                          " 1 | List Books\n";
+                          " 1 | List Books\n" +
+                          " 0 | Quit\n";
         MainMenu menu = MainMenu.instance;
         menu.show();
         assertEquals(expected, outStream.toString());
@@ -58,5 +59,5 @@ public class MainMenuTest {
         assertEquals(expected, outStream.toString());
     }
 
-
+    
 }

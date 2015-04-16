@@ -12,8 +12,10 @@ public class BibliotecaApp {
     }
 
     public static void menuLoop() {
-            menu.show();
-            menu.handleResponse();
+            while (true) {
+                menu.show();
+                menu.handleResponse();
+            }
     }
 
     private static void setupLibrary() {
