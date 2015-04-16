@@ -1,4 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.menu;
+
+import com.twu.biblioteca.BibliotecaApp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,13 +13,13 @@ import java.util.HashMap;
 public class MainMenu {
 
     public static MainMenu instance = new MainMenu();
-    private HashMap<Integer, String> menuOptions = new HashMap<Integer, String>();
+    private HashMap<String, AbstractMenuItem> menuOptions = new HashMap<String, AbstractMenuItem>();
 
     public static final String INVALID_INPUT_MESSAGE = "The input you've entered is invalid, please try again.\n";
 
     private MainMenu(){
-        menuOptions.put(1, "List Books");
-        menuOptions.put(0, "Quit");
+        menuOptions.put("1", ListBooksItem.instance);
+        menuOptions.put("0", QuitItem.instance);
     }
 
     public void show() {
@@ -25,7 +27,7 @@ public class MainMenu {
 
         sb.append("------ Main Menu ------\n" +
                 "Select an option below:\n");
-        for (Integer key: menuOptions.keySet()) {
+        for (String key: menuOptions.keySet()) {
             sb.append(" " + key + " | " + menuOptions.get(key) + "\n");
         }
         System.out.print(sb.toString());
@@ -35,20 +37,13 @@ public class MainMenu {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             String response = br.readLine();
-            switch (Integer.parseInt(response)) {
-                case 1:
-                    System.out.print(BibliotecaApp.getLibrary().getBookList());
-                    break;
-                case 0:
-                    System.out.print("Goodbye.");
-                    throw new RuntimeException();
-                default:
-                    System.out.print(INVALID_INPUT_MESSAGE);
+            if (menuOptions.containsKey(response)) {
+                menuOptions.get(response).action();
+            } else {
+                System.out.print(INVALID_INPUT_MESSAGE);
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (NumberFormatException e) {
-            System.out.print(INVALID_INPUT_MESSAGE);
         }
     }
 }

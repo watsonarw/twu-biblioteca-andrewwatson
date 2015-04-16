@@ -1,8 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.menu;
 
 import com.twu.biblioteca.AllTests;
 import com.twu.biblioteca.BibliotecaApp;
-import com.twu.biblioteca.MainMenu;
+import com.twu.biblioteca.menu.MainMenu;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,8 +34,8 @@ public class MainMenuTest {
     public void testDisplayMainMenu() {
         String expected = "------ Main Menu ------\n" +
                           "Select an option below:\n" +
-                          " 1 | List Books\n" +
-                          " 0 | Quit\n";
+                          " 0 | Quit\n" +
+                          " 1 | List Books\n";
         MainMenu menu = MainMenu.instance;
         menu.show();
         assertEquals(expected, outStream.toString());

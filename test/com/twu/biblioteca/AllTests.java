@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.menu.MainMenuTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
