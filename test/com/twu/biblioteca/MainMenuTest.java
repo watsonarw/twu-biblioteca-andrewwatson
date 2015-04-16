@@ -25,8 +25,7 @@ public class MainMenuTest {
 
     @After
     public void tearDown() {
-        System.setOut(null);
-        System.setIn(System.in);
+        AllTests.commonTearDown();
     }
 
     @Test
@@ -43,7 +42,7 @@ public class MainMenuTest {
     public void testSelectionOneShowsListOfBooks() {
         String expected = BibliotecaApp.getLibrary().getBookList();
         MainMenu menu = MainMenu.instance;
-        nextInputAs("1\n");
+        AllTests.nextInputAs("1\n");
         menu.handleResponse();
 
         assertEquals(expected, outStream.toString());
@@ -53,14 +52,11 @@ public class MainMenuTest {
     public void testSelectionOtherThanOneShowsInvalidMessage() {
         String expected = MainMenu.INVALID_INPUT_MESSAGE;
         MainMenu menu = MainMenu.instance;
-        nextInputAs("S\n");
+        AllTests.nextInputAs("S\n");
         menu.handleResponse();
 
         assertEquals(expected, outStream.toString());
     }
 
-    private void nextInputAs(String s) {
-        ByteArrayInputStream inStream = new ByteArrayInputStream(s.getBytes());
-        System.setIn(inStream);
-    }
+
 }

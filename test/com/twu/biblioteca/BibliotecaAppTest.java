@@ -22,23 +22,18 @@ public class BibliotecaAppTest {
 
     @After
     public void tearDown() {
-        System.setOut(null);
-        System.setIn(System.in);
+    AllTests.commonTearDown();
     }
 
     @Test
     public void testWelcomeMessageOnFirstLine() {
         String expected = "Welcome to Biblioteca.";
 
-        nextInputAs("1\n\n");
+        AllTests.nextInputAs("1\n\n");
         BibliotecaApp.main(null);
         String output = outStream.toString();
         int lineLength = output.indexOf("\n");
         assertEquals(expected, output.substring(0, lineLength));
     }
 
-    private void nextInputAs(String s) {
-        ByteArrayInputStream inStream = new ByteArrayInputStream(s.getBytes());
-        System.setIn(inStream);
-    }
 }
