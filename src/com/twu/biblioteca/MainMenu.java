@@ -9,6 +9,10 @@ import java.io.InputStreamReader;
  */
 public class MainMenu {
 
+    public static MainMenu instance = new MainMenu();
+
+    private MainMenu(){ }
+
     public void show() {
         System.out.print("------ Main Menu ------\n" +
                            "Select an option below:\n" +
