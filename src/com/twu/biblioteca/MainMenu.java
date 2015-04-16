@@ -11,6 +11,8 @@ public class MainMenu {
 
     public static MainMenu instance = new MainMenu();
 
+    public static final String INVALID_INPUT_MESSAGE = "The input you've entered is invalid, please try again.\n";
+
     private MainMenu(){ }
 
     public void show() {
@@ -22,10 +24,18 @@ public class MainMenu {
     public void handleResponse() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
-            int response = br.read();
-            System.out.print(BibliotecaApp.getLibrary().getBookList());
+            String response = br.readLine();
+            switch (Integer.parseInt(response)) {
+                case 1:
+                    System.out.print(BibliotecaApp.getLibrary().getBookList());
+                    break;
+                default:
+                    System.out.print(INVALID_INPUT_MESSAGE);
+            }
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.print(INVALID_INPUT_MESSAGE);
         }
     }
 }
