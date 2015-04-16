@@ -15,6 +15,6 @@ public class ListBooksItem extends AbstractMenuItem{
 
     @Override
     public void action() {
-        System.out.print(BibliotecaApp.getLibrary().getBookList());
+        BibliotecaApp.print(BibliotecaApp.getLibrary().getBookList());
     }
 }

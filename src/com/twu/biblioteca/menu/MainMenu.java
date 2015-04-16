@@ -31,7 +31,7 @@ public class MainMenu {
         for (String key: menuOptions.keySet()) {
             sb.append(" " + key + " | " + menuOptions.get(key) + "\n");
         }
-        System.out.print(sb.toString());
+        BibliotecaApp.print(sb.toString());
     }
 
     public void handleResponse() {
@@ -41,7 +41,7 @@ public class MainMenu {
             if (menuOptions.containsKey(response)) {
                 menuOptions.get(response).action();
             } else {
-                System.out.print(INVALID_INPUT_MESSAGE);
+                BibliotecaApp.print(INVALID_INPUT_MESSAGE);
             }
         } catch (IOException e) {
             e.printStackTrace();
