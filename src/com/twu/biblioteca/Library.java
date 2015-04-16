@@ -39,4 +39,13 @@ public class Library {
         return books.get(bookId-1).isCheckedOut();
     }
 
+    public boolean bookExists(int bookId) {
+        try {
+            books.get(bookId - 1);
+        } catch (IndexOutOfBoundsException e) {
+            return false;
+        }
+        return true;
+    }
+
 }

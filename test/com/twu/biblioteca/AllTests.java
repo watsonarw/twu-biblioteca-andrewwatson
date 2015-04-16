@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.menu.CheckOutBookItem;
+import com.twu.biblioteca.menu.CheckOutBookItemTest;
 import com.twu.biblioteca.menu.MainMenuTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -16,7 +18,8 @@ import java.io.ByteArrayInputStream;
         BibliotecaAppTest.class,
         LibraryTest.class,
         BookTest.class,
-        MainMenuTest.class
+        MainMenuTest.class,
+        CheckOutBookItemTest.class
 })
 public class AllTests {
 

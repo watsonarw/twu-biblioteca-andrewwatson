@@ -69,21 +69,5 @@ public class MainMenuTest {
         menu.handleResponse();
     }
 
-    @Test
-    public void testSelection2Option1ChecksOutBook1() {
-
-        String expected = "Which book below would you like to check out:\n" +
-                            BibliotecaApp.getLibrary().getBookList() +
-                            CheckOutBookItem.SUCCESSFUL_CHECKOUT_MESSAGE;
-
-        MainMenu menu = MainMenu.instance;
-
-        AllTests.nextInputAs("2\n1\n");
-        menu.handleResponse();
-        boolean actual = BibliotecaApp.getLibrary().isBookCheckedOut(1);
-        assertEquals(true, actual);
-
-        assertEquals(expected, outStream.toString());
-    }
 
 }

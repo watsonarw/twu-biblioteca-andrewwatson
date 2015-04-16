@@ -37,7 +37,7 @@ public class MainMenu {
     public void handleResponse() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
-            String response = br.readLine();
+            String response = BibliotecaApp.readLine();
             if (menuOptions.containsKey(response)) {
                 menuOptions.get(response).action();
             } else {

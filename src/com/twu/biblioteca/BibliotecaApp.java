@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.menu.MainMenu;
+import org.junit.runners.AllTests;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,8 +14,6 @@ public class BibliotecaApp {
 
     private static boolean testing = false; //Used to prevent infinite loop during unit tests
 
-    private static BufferedReader consoleInput = new BufferedReader(new InputStreamReader(System.in));
-
     public static void main(String[] args) {
         displayWelcomeMessage();
         setupLibrary();
@@ -22,7 +21,7 @@ public class BibliotecaApp {
     }
 
     public static String readLine() throws IOException {
-        return consoleInput.readLine();
+        return new BufferedReader(new InputStreamReader(System.in)).readLine();
     }
 
     public static void menuLoop() {

@@ -12,6 +12,7 @@ public class CheckOutBookItem extends AbstractMenuItem{
     public static AbstractMenuItem instance = new CheckOutBookItem();
 
     public static final String SUCCESSFUL_CHECKOUT_MESSAGE = "Thank you! Enjoy the book\n";
+    public static final String UNSUCCESSFUL_CHECKOUT_MESSAGE = "That book is not available.\n";
 
     private CheckOutBookItem() {
         super("Checkout Book");
@@ -23,12 +24,20 @@ public class CheckOutBookItem extends AbstractMenuItem{
                 BibliotecaApp.getLibrary().getBookList());
         try {
             String response = BibliotecaApp.readLine();
-            BibliotecaApp.getLibrary().checkoutBook(Integer.parseInt(response));
-            BibliotecaApp.print(SUCCESSFUL_CHECKOUT_MESSAGE);
+            if (bookAvailable(Integer.parseInt(response))) {
+                BibliotecaApp.getLibrary().checkoutBook(Integer.parseInt(response));
+                BibliotecaApp.print(SUCCESSFUL_CHECKOUT_MESSAGE);
+            } else {
+                BibliotecaApp.print(UNSUCCESSFUL_CHECKOUT_MESSAGE);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NumberFormatException e2) {
 
         }
+    }
+
+    private boolean bookAvailable(int bookId) {
+        return BibliotecaApp.getLibrary().bookExists(bookId) && !BibliotecaApp.getLibrary().isBookCheckedOut(bookId);
     }
 }
