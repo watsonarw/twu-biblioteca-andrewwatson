@@ -15,4 +15,11 @@ public class BookTest {
         assertEquals("To Kill a Mockingbird - Harper Lee, 1960", book.toString());
     }
 
+    @Test
+    public void testCheckedOutBookDisplaysAsEmptyString() {
+        Book book = new Book("To Kill a Mockingbird", "Harper Lee", 1960);
+        book.checkoutBook();
+        assertEquals(true, book.isCheckedOut());
+    }
+
 }
