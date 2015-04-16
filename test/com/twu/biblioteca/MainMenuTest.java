@@ -49,6 +49,16 @@ public class MainMenuTest {
         assertEquals(expected, outStream.toString());
     }
 
+    @Test
+    public void testSelectionOtherThanOneShowsInvalidMessage() {
+        String expected = MainMenu.INVALID_INPUT_MESSAGE;
+        MainMenu menu = MainMenu.instance;
+        nextInputAs("S\n");
+        menu.handleResponse();
+
+        assertEquals(expected, outStream.toString());
+    }
+
     private void nextInputAs(String s) {
         ByteArrayInputStream inStream = new ByteArrayInputStream(s.getBytes());
         System.setIn(inStream);
