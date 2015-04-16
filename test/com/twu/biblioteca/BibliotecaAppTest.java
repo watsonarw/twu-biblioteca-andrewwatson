@@ -31,4 +31,19 @@ public class BibliotecaAppTest {
         int lineLength = output.indexOf("\n");
         assertEquals(expected, output.substring(0, lineLength));
     }
+
+    @Test
+    public void testListBooks() {
+        String expected =   "The Lord of The Rings\n" +
+                            "To Kill a Mockingbird\n" +
+                            "Nineteen Eighty Four\n" +
+                            "Pride and Prejudice\n" +
+                            "His Dark Materials\n";
+        BibliotecaApp.main(null);
+        String output = outStream.toString();
+        //ignore first line
+        int firstLineLength = output.indexOf("\n");
+        String out = output.substring(firstLineLength+1,output.length());
+        assertEquals(expected, out);
+    }
 }
