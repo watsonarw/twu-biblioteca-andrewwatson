@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class ExampleTest {
+public class BibliotecaAppTest {
 
     private ByteArrayOutputStream outStream = new ByteArrayOutputStream();
 
