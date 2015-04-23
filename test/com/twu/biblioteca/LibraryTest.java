@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.library.Library;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

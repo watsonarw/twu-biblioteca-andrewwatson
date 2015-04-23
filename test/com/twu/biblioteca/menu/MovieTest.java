@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.Movie;
+import com.twu.biblioteca.library.Movie;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

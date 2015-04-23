@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.library;
 
 import java.util.ArrayList;
 
@@ -10,18 +10,22 @@ public class Library {
     private ArrayList<Book> books = new ArrayList<Book>();
     private ArrayList<Movie> movies = new ArrayList<Movie>();
 
-    static void setupLibrary() {
-        instance = new Library();
+    public void setup() {
         instance.addBook("The Lord of The Rings", "J.R.R. Tolkien", 1954);
         instance.addBook("To Kill a Mockingbird", "Harper Lee", 1960);
         instance.addBook("Nineteen Eighty Four", "George Orwell", 1949);
         instance.addBook("Pride and Prejudice", "Jane Austin", 1813);
         instance.addBook("His Dark Materials", "Philip Pullman", 1995);
+
+        instance.addMovie("Titanic", 1997, "James Cameron", 7.7);
+        instance.addMovie("The Godfather", 1972, "Francis Ford Coppola", 9.2);
+        instance.addMovie("Schindler's List", 1993, "Steven Spielberg", 8.9);
     }
 
     public static Library getInstance() {
         if (instance == null) {
-            setupLibrary();
+            instance = new Library();
+            instance.setup();
         }
         return instance;
     }

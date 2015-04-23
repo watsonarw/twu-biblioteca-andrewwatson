@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.Library;
+import com.twu.biblioteca.library.Library;
 import com.twu.biblioteca.TestUtilities;
 import com.twu.biblioteca.com.twu.biblioteca.exceptions.QuitAppException;
 import org.junit.After;
