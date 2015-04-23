@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Library {
     private static Library instance;
     private ArrayList<Book> books = new ArrayList<Book>();
-    private ArrayList<String> movies = new ArrayList<String>();
+    private ArrayList<Movie> movies = new ArrayList<Movie>();
 
     static void setupLibrary() {
         instance = new Library();
@@ -36,12 +36,12 @@ public class Library {
         addBook(new Book(title, author, year));
     }
 
-    public void addMovie(String movie) {
+    public void addMovie(Movie movie) {
         movies.add(movie);
     }
 
     public void addMovie(String title, int year, String director, double rating){
-        movies.add(String.format("%s (%d) - %s, %.1f/10", title, year, director, rating));
+        movies.add(new Movie(title, year, director, rating));
     }
 
 
@@ -59,7 +59,7 @@ public class Library {
 
     public String getMovieList() {
         StringBuilder sb = new StringBuilder();
-        for (String movie : movies) {
+        for (Movie movie : movies) {
             sb.append(" " + (movies.indexOf(movie) + 1) + " | ");
             sb.append(movie.toString());
             sb.append("\n");
