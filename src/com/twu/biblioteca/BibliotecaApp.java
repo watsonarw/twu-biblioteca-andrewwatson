@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.menu.MainMenu;
-import org.junit.runners.AllTests;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,7 +1,7 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.TestUtilities;
 import com.twu.biblioteca.BibliotecaApp;
+import com.twu.biblioteca.TestUtilities;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
