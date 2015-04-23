@@ -3,18 +3,15 @@ package com.twu.biblioteca.library;
 /**
  * Created by watsonarw on 16/04/15.
  */
-public class Book {
+public class Book extends AbstractLibraryProduct{
 
-    private String title;
     private String author;
-    private int year;
 
     private boolean checkedOut = false;
 
     public Book(String title, String author, int year) {
-        this.title = title;
+        super(title, year);
         this.author = author;
-        this.year = year;
     }
 
     @Override

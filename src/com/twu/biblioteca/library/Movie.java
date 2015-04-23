@@ -3,15 +3,13 @@ package com.twu.biblioteca.library;
 /**
  * Created by watsonarw on 23/04/15.
  */
-public class Movie {
-    private String title;
-    private int year;
-    private String director;
+public class Movie extends AbstractLibraryProduct {
+
+    private final String director;
     private Double rating;
 
     public Movie(String title, int year, String director, Double rating) {
-        this.title = title;
-        this.year = year;
+        super(title, year);
         this.director = director;
         this.rating = rating;
     }
