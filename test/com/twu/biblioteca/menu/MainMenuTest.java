@@ -37,7 +37,8 @@ public class MainMenuTest {
                           " 1 | List Books\n" +
                           " Q | Quit\n" +
                           " 2 | Checkout Book\n" +
-                          " 3 | Return Book\n";
+                          " 3 | Return Book\n" +
+                          " 4 | List Movies\n";
 
         MainMenu menu = MainMenu.instance;
         menu.show();

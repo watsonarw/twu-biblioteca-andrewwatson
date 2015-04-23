@@ -23,6 +23,7 @@ public class MainMenu {
         menuOptions.put("Q", QuitItem.instance);
         menuOptions.put("2", CheckOutBookItem.instance);
         menuOptions.put("3", ReturnBookItem.instance);
+        menuOptions.put("4", ListMoviesItem.instance);
     }
 
     public void loop() {
