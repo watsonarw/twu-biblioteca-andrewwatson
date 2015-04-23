@@ -93,4 +93,20 @@ public class LibraryTest {
         assertEquals(" 3 | Catcher in the Rye - J.D. Salinger, 1951\n", library.getCheckedOutBookList());
     }
 
+    @Test
+    public void testSingleMovieLibrary() {
+        Library library = new Library();
+        library.addMovie("The Godfather", 1972, "Francis Ford Coppola", 9.2);
+        assertEquals(" 1 | The Godfather (1972) - Francis Ford Coppola, 9.2/10\n",library.getMovieList());
+    }
+
+    @Test
+    public void testMultiMovieLibrary() {
+        Library library = new Library();
+        library.addMovie("The Godfather", 1972, "Francis Ford Coppola", 9.2);
+        library.addMovie("Schindler's List", 1993, "Steven Spielberg", 8.9);
+        assertEquals(" 1 | The Godfather (1972) - Francis Ford Coppola, 9.2/10\n" +
+                     " 2 | Schindler's List (1993) - Steven Spielberg, 8.9/10\n", library.getMovieList());
+    }
+
 }
