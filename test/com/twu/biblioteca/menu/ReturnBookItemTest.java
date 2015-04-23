@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.BibliotecaApp;
+import com.twu.biblioteca.Library;
 import com.twu.biblioteca.TestUtilities;
 import org.junit.After;
 import org.junit.Before;
@@ -30,15 +30,15 @@ public class ReturnBookItemTest {
 
     @Test
     public void testReturnCommandReturnsBook() {
-        BibliotecaApp.getLibrary().checkoutBook(2);
+        Library.getInstance().checkoutBook(2);
         TestUtilities.nextInputAs("2\n");
         ReturnBookItem.instance.action();
-        assertEquals(false, BibliotecaApp.getLibrary().isBookCheckedOut(2));
+        assertEquals(false, Library.getInstance().isBookCheckedOut(2));
     }
 
     @Test
     public void testReturnCommandDisplaysSuccessMessageWhenSuccessful() {
-        BibliotecaApp.getLibrary().checkoutBook(1);
+        Library.getInstance().checkoutBook(1);
         TestUtilities.nextInputAs(("1\n"));
         ReturnBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(ReturnBookItem.SUCCESSFUL_RETURN_MESSAGE);

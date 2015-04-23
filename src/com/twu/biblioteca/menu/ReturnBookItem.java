@@ -1,6 +1,7 @@
 package com.twu.biblioteca.menu;
 
 import com.twu.biblioteca.BibliotecaApp;
+import com.twu.biblioteca.Library;
 
 import java.io.IOException;
 
@@ -23,11 +24,11 @@ public class ReturnBookItem extends AbstractMenuItem{
     @Override
     public void action() {
         BibliotecaApp.print(RETURN_INSTRUCTION +
-                BibliotecaApp.getLibrary().getCheckedOutBookList());
+                Library.getInstance().getCheckedOutBookList());
         try {
             String response = BibliotecaApp.readLine();
             if (bookCheckedOut(Integer.parseInt(response))) {
-                BibliotecaApp.getLibrary().returnBook(Integer.parseInt(response));
+                Library.getInstance().returnBook(Integer.parseInt(response));
                 BibliotecaApp.print(SUCCESSFUL_RETURN_MESSAGE);
             } else {
                 BibliotecaApp.print(UNSUCCESSFUL_RETURN_MESSAGE);
@@ -40,6 +41,6 @@ public class ReturnBookItem extends AbstractMenuItem{
     }
 
     private boolean bookCheckedOut(int bookId) {
-        return BibliotecaApp.getLibrary().bookExists(bookId) && BibliotecaApp.getLibrary().isBookCheckedOut(bookId);
+        return Library.getInstance().bookExists(bookId) && Library.getInstance().isBookCheckedOut(bookId);
     }
 }

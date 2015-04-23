@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.BibliotecaApp;
+import com.twu.biblioteca.Library;
 import com.twu.biblioteca.TestUtilities;
 import org.junit.After;
 import org.junit.Before;
@@ -45,7 +45,7 @@ public class MainMenuTest {
 
     @Test
     public void testSelectionOneShowsListOfBooks() {
-        String expected = BibliotecaApp.getLibrary().getBookList();
+        String expected = Library.getInstance().getBookList();
         MainMenu menu = MainMenu.instance;
         TestUtilities.nextInputAs("1\n");
         menu.handleResponse();

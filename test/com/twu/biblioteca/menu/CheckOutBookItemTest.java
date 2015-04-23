@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.BibliotecaApp;
+import com.twu.biblioteca.Library;
 import com.twu.biblioteca.TestUtilities;
 import org.junit.After;
 import org.junit.Before;
@@ -32,7 +32,7 @@ public class CheckOutBookItemTest {
     public void testCheckoutCommandChecksOutBook() {
         TestUtilities.nextInputAs("1\n");
         CheckOutBookItem.instance.action();
-        assertEquals(true, BibliotecaApp.getLibrary().isBookCheckedOut(1));
+        assertEquals(true, Library.getInstance().isBookCheckedOut(1));
     }
 
     @Test

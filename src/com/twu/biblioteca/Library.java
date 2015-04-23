@@ -6,7 +6,24 @@ import java.util.ArrayList;
  * Created by watsonarw on 16/04/15.
  */
 public class Library {
+    private static Library instance;
     private ArrayList<Book> books = new ArrayList<Book>();
+
+    static void setupLibrary() {
+        instance = new Library();
+        instance.addBook("The Lord of The Rings", "J.R.R. Tolkien", 1954);
+        instance.addBook("To Kill a Mockingbird", "Harper Lee", 1960);
+        instance.addBook("Nineteen Eighty Four", "George Orwell", 1949);
+        instance.addBook("Pride and Prejudice", "Jane Austin", 1813);
+        instance.addBook("His Dark Materials", "Philip Pullman", 1995);
+    }
+
+    public static Library getInstance() {
+        if (instance == null) {
+            setupLibrary();
+        }
+        return instance;
+    }
 
 
     public void addBook(Book book) {
