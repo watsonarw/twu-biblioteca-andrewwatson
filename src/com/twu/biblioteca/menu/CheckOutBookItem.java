@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.BibliotecaApp;
+import com.twu.biblioteca.IOUtilities;
 import com.twu.biblioteca.Library;
 
 import java.io.IOException;
@@ -22,15 +22,15 @@ public class CheckOutBookItem extends AbstractMenuItem{
 
     @Override
     public void action() {
-        BibliotecaApp.print( CHECK_OUT_INSTRUCTION +
+        IOUtilities.print(CHECK_OUT_INSTRUCTION +
                 Library.getInstance().getBookList());
         try {
-            String response = BibliotecaApp.readLine();
+            String response = IOUtilities.readLine();
             if (bookAvailable(Integer.parseInt(response))) {
                 Library.getInstance().checkoutBook(Integer.parseInt(response));
-                BibliotecaApp.print(SUCCESSFUL_CHECKOUT_MESSAGE);
+                IOUtilities.print(SUCCESSFUL_CHECKOUT_MESSAGE);
             } else {
-                BibliotecaApp.print(UNSUCCESSFUL_CHECKOUT_MESSAGE);
+                IOUtilities.print(UNSUCCESSFUL_CHECKOUT_MESSAGE);
             }
         } catch (IOException e) {
             e.printStackTrace();

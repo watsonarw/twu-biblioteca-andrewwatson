@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.BibliotecaApp;
+import com.twu.biblioteca.IOUtilities;
 import com.twu.biblioteca.Library;
 
 /**
@@ -16,6 +16,6 @@ public class ListBooksItem extends AbstractMenuItem{
 
     @Override
     public void action() {
-        BibliotecaApp.print(Library.getInstance().getBookList());
+        IOUtilities.print(Library.getInstance().getBookList());
     }
 }
