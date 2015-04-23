@@ -2,6 +2,7 @@ package com.twu.biblioteca.menu;
 
 import com.twu.biblioteca.Library;
 import com.twu.biblioteca.TestUtilities;
+import com.twu.biblioteca.com.twu.biblioteca.exceptions.QuitAppException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -63,7 +64,7 @@ public class MainMenuTest {
         assertEquals(expected, outStream.toString());
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test(expected = QuitAppException.class)
     public void testSelectionQThrowsRuntimeExceptionToQuit()
     {
         MainMenu menu = MainMenu.instance;

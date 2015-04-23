@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.com.twu.biblioteca.exceptions.QuitAppException;
 import com.twu.biblioteca.menu.MainMenu;
 
 public class BibliotecaApp {
@@ -9,8 +10,12 @@ public class BibliotecaApp {
     public static boolean testing = false; //Used to prevent infinite loop during unit tests
 
     public static void main(String[] args) {
-        BibliotecaApp app = new BibliotecaApp();
-        app.run();
+        try {
+            BibliotecaApp app = new BibliotecaApp();
+            app.run();
+        } catch (QuitAppException e) {
+            System.exit(0);
+        }
     }
 
     private void run() {
