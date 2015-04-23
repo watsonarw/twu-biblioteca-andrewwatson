@@ -5,7 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -22,14 +21,14 @@ public class BibliotecaAppTest {
 
     @After
     public void tearDown() {
-    AllTests.commonTearDown();
+    TestUtilities.commonTearDown();
     }
 
     @Test
     public void testWelcomeMessageOnFirstLine() {
         String expected = "Welcome to Biblioteca.";
 
-        AllTests.nextInputAs("1\n\n");
+        TestUtilities.nextInputAs("1\n\n");
         BibliotecaApp.setTesting(true);
         BibliotecaApp.main(null);
         String output = outStream.toString();

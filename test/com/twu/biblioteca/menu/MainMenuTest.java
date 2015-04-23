@@ -1,8 +1,7 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.AllTests;
+import com.twu.biblioteca.TestUtilities;
 import com.twu.biblioteca.BibliotecaApp;
-import com.twu.biblioteca.menu.MainMenu;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +25,7 @@ public class MainMenuTest {
 
     @After
     public void tearDown() {
-        AllTests.commonTearDown();
+        TestUtilities.commonTearDown();
     }
 
     @Test
@@ -47,7 +46,7 @@ public class MainMenuTest {
     public void testSelectionOneShowsListOfBooks() {
         String expected = BibliotecaApp.getLibrary().getBookList();
         MainMenu menu = MainMenu.instance;
-        AllTests.nextInputAs("1\n");
+        TestUtilities.nextInputAs("1\n");
         menu.handleResponse();
 
         assertEquals(expected, outStream.toString());
@@ -57,7 +56,7 @@ public class MainMenuTest {
     public void testInvalidSelectionShowsInvalidMessage() {
         String expected = MainMenu.INVALID_INPUT_MESSAGE;
         MainMenu menu = MainMenu.instance;
-        AllTests.nextInputAs("S\n");
+        TestUtilities.nextInputAs("S\n");
         menu.handleResponse();
 
         assertEquals(expected, outStream.toString());
@@ -67,7 +66,7 @@ public class MainMenuTest {
     public void testSelectionQThrowsRuntimeExceptionToQuit()
     {
         MainMenu menu = MainMenu.instance;
-        AllTests.nextInputAs("Q\n");
+        TestUtilities.nextInputAs("Q\n");
         menu.handleResponse();
     }
 
@@ -75,7 +74,7 @@ public class MainMenuTest {
     @Test
     public void testSelection2CallsCheckOutCommand() {
         MainMenu menu = MainMenu.instance;
-        AllTests.nextInputAs("2\n");
+        TestUtilities.nextInputAs("2\n");
         menu.handleResponse();
         boolean stringContains = outStream.toString().startsWith(CheckOutBookItem.CHECK_OUT_INSTRUCTION);
         assertEquals(true, stringContains);
@@ -84,7 +83,7 @@ public class MainMenuTest {
     @Test
     public void testSelection3CallsReturnCommand() {
         MainMenu menu = MainMenu.instance;
-        AllTests.nextInputAs("3\n");
+        TestUtilities.nextInputAs("3\n");
         menu.handleResponse();
         boolean stringContains = outStream.toString().startsWith(ReturnBookItem.RETURN_INSTRUCTION);
         assertEquals(true, stringContains);

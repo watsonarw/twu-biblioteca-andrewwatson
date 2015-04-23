@@ -1,12 +1,11 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.AllTests;
+import com.twu.biblioteca.TestUtilities;
 import com.twu.biblioteca.BibliotecaApp;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -26,13 +25,13 @@ public class ReturnBookItemTest {
 
     @After
     public void tearDown() {
-        AllTests.commonTearDown();
+        TestUtilities.commonTearDown();
     }
 
     @Test
     public void testReturnCommandReturnsBook() {
         BibliotecaApp.getLibrary().checkoutBook(2);
-        AllTests.nextInputAs("2\n");
+        TestUtilities.nextInputAs("2\n");
         ReturnBookItem.instance.action();
         assertEquals(false, BibliotecaApp.getLibrary().isBookCheckedOut(2));
     }
@@ -40,7 +39,7 @@ public class ReturnBookItemTest {
     @Test
     public void testReturnCommandDisplaysSuccessMessageWhenSuccessful() {
         BibliotecaApp.getLibrary().checkoutBook(1);
-        AllTests.nextInputAs(("1\n"));
+        TestUtilities.nextInputAs(("1\n"));
         ReturnBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(ReturnBookItem.SUCCESSFUL_RETURN_MESSAGE);
         assertEquals(true, stringContains);
@@ -48,10 +47,10 @@ public class ReturnBookItemTest {
 
     @Test
     public void testReturnCommandDisplaysFailureMessageWhenBookAlreadyReturned() {
-        AllTests.nextInputAs(("4\n"));
+        TestUtilities.nextInputAs(("4\n"));
         ReturnBookItem.instance.action();
         outStream.reset();
-        AllTests.nextInputAs(("4\n"));
+        TestUtilities.nextInputAs(("4\n"));
         ReturnBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(ReturnBookItem.UNSUCCESSFUL_RETURN_MESSAGE);
         assertEquals(true, stringContains);
@@ -60,7 +59,7 @@ public class ReturnBookItemTest {
 
     @Test
     public void testReturnCommandDisplaysFailureMessageWhenBookDoesntExist() {
-        AllTests.nextInputAs(("99\n"));
+        TestUtilities.nextInputAs(("99\n"));
         ReturnBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(ReturnBookItem.UNSUCCESSFUL_RETURN_MESSAGE);
         assertEquals(true, stringContains);

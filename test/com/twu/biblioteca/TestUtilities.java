@@ -13,17 +13,7 @@ import java.io.ByteArrayInputStream;
  * Created by watsonarw on 16/04/15.
  */
 
-@RunWith(Suite.class)
-
-@Suite.SuiteClasses({
-        BibliotecaAppTest.class,
-        LibraryTest.class,
-        BookTest.class,
-        MainMenuTest.class,
-        CheckOutBookItemTest.class,
-        ReturnBookItemTest.class
-})
-public class AllTests {
+public class TestUtilities {
 
     public static void nextInputAs(String s) {
         ByteArrayInputStream inStream = new ByteArrayInputStream(s.getBytes());

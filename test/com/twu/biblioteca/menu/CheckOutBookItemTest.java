@@ -1,12 +1,11 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.AllTests;
+import com.twu.biblioteca.TestUtilities;
 import com.twu.biblioteca.BibliotecaApp;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -27,19 +26,19 @@ public class CheckOutBookItemTest {
 
     @After
     public void tearDown() {
-        AllTests.commonTearDown();
+        TestUtilities.commonTearDown();
     }
 
     @Test
     public void testCheckoutCommandChecksOutBook() {
-        AllTests.nextInputAs("1\n");
+        TestUtilities.nextInputAs("1\n");
         CheckOutBookItem.instance.action();
         assertEquals(true, BibliotecaApp.getLibrary().isBookCheckedOut(1));
     }
 
     @Test
     public void testCheckoutCommandDisplaysSuccessMessageWhenSuccessful() {
-        AllTests.nextInputAs(("2\n"));
+        TestUtilities.nextInputAs(("2\n"));
         CheckOutBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.SUCCESSFUL_CHECKOUT_MESSAGE);
         assertEquals(true, stringContains);
@@ -47,10 +46,10 @@ public class CheckOutBookItemTest {
 
     @Test
     public void testCheckoutCommandDisplaysFailureMessageWhenBookAlreadyCheckedOut() {
-        AllTests.nextInputAs(("1\n"));
+        TestUtilities.nextInputAs(("1\n"));
         CheckOutBookItem.instance.action();
         outStream.reset();
-        AllTests.nextInputAs(("1\n"));
+        TestUtilities.nextInputAs(("1\n"));
         CheckOutBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.UNSUCCESSFUL_CHECKOUT_MESSAGE);
         assertEquals(true, stringContains);
@@ -59,7 +58,7 @@ public class CheckOutBookItemTest {
 
     @Test
     public void testCheckoutCommandDisplaysFailureMessageWhenBookDoesntExist() {
-        AllTests.nextInputAs(("99\n"));
+        TestUtilities.nextInputAs(("99\n"));
         CheckOutBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.UNSUCCESSFUL_CHECKOUT_MESSAGE);
         assertEquals(true, stringContains);
