@@ -8,11 +8,16 @@ import java.io.InputStreamReader;
 
 public class BibliotecaApp {
 
-    private static MainMenu menu = MainMenu.instance;
+    private MainMenu menu = MainMenu.instance;
 
     public static boolean testing = false; //Used to prevent infinite loop during unit tests
 
     public static void main(String[] args) {
+        BibliotecaApp app = new BibliotecaApp();
+        app.run();
+    }
+
+    private void run() {
         displayWelcomeMessage();
         menu.loop();
     }
@@ -22,7 +27,7 @@ public class BibliotecaApp {
     }
 
 
-    private static void displayWelcomeMessage() {
+    private void displayWelcomeMessage() {
         print("Welcome to Biblioteca.\n");
     }
 
