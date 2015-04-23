@@ -10,22 +10,15 @@ public class BibliotecaApp {
 
     private static MainMenu menu = MainMenu.instance;
 
-    private static boolean testing = false; //Used to prevent infinite loop during unit tests
+    public static boolean testing = false; //Used to prevent infinite loop during unit tests
 
     public static void main(String[] args) {
         displayWelcomeMessage();
-        menuLoop();
+        menu.loop();
     }
 
     public static String readLine() throws IOException {
         return new BufferedReader(new InputStreamReader(System.in)).readLine();
-    }
-
-    public static void menuLoop() {
-            while (!testing) {
-                menu.show();
-                menu.handleResponse();
-            }
     }
 
 

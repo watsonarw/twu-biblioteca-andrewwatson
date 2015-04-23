@@ -24,6 +24,13 @@ public class MainMenu {
         menuOptions.put("3", ReturnBookItem.instance);
     }
 
+    public void loop() {
+            while (!BibliotecaApp.testing) {
+                this.show();
+                this.handleResponse();
+            }
+    }
+
     public void show() {
         StringBuilder sb = new StringBuilder();
 
