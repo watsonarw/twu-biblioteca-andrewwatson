@@ -85,7 +85,7 @@ public class Library {
 
     public void checkoutBook(int bookId) {
         if (bookExists(bookId)) {
-            books.get(bookId - 1).checkoutBook();
+            books.get(bookId - 1).checkOut();
         }
     }
 
@@ -104,7 +104,7 @@ public class Library {
 
     public void returnBook(int bookId) {
         if (bookExists(bookId)) {
-            books.get(bookId -1).returnBook();
+            books.get(bookId -1).checkIn();
         }
     }
 

@@ -1,7 +1,6 @@
 package com.twu.biblioteca.library;
 
 import com.twu.biblioteca.com.twu.biblioteca.exceptions.InvalidRatingException;
-import com.twu.biblioteca.library.Movie;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

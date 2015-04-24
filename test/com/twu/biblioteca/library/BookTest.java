@@ -1,6 +1,5 @@
 package com.twu.biblioteca.library;
 
-import com.twu.biblioteca.library.Book;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -19,16 +18,16 @@ public class BookTest {
     @Test
     public void testBookCanBeCheckedOut() {
         Book book = new Book("To Kill a Mockingbird", "Harper Lee", 1960);
-        book.checkoutBook();
+        book.checkOut();
         assertEquals(true, book.isCheckedOut());
     }
 
     @Test
     public void testBookCanBeReturned() {
         Book book = new Book("To Kill a Mockingbird", "Harper Lee", 1960);
-        book.checkoutBook();
+        book.checkOut();
         assertEquals(true, book.isCheckedOut());
-        book.returnBook();
+        book.checkIn();
         assertEquals(false, book.isCheckedOut());
     }
 
