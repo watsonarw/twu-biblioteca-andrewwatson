@@ -7,8 +7,8 @@ import java.util.ArrayList;
  */
 public class Library {
     private static Library instance;
-    private ArrayList<Book> books = new ArrayList<Book>();
-    private ArrayList<Movie> movies = new ArrayList<Movie>();
+    private AbstractLibraryProductList<Book> books = new AbstractLibraryProductList<Book>();
+    private AbstractLibraryProductList<Movie> movies = new AbstractLibraryProductList<Movie>();
 
     public void setup() {
         instance.addBook("The Lord of The Rings", "J.R.R. Tolkien", 1954);
@@ -50,87 +50,48 @@ public class Library {
 
 
     public String getBookList() {
-        StringBuilder sb = new StringBuilder();
-        for(Book book : books) {
-            if (!book.isCheckedOut()) {
-                sb.append(" " + (books.indexOf(book) + 1) + " | ");
-                sb.append(book.toString());
-                sb.append("\n");
-            }
-        }
-        return sb.toString();
+        return books.getAvailableList();
     }
 
     public String getMovieList() {
-        StringBuilder sb = new StringBuilder();
-        for (Movie movie : movies) {
-            sb.append(" " + (movies.indexOf(movie) + 1) + " | ");
-            sb.append(movie.toString());
-            sb.append("\n");
-        }
-        return sb.toString();
+        return movies.toString();
     }
 
     public String getCheckedOutBookList() {
-        StringBuilder sb = new StringBuilder();
-        for(Book book : books) {
-            if (book.isCheckedOut()) {
-                sb.append(" " + (books.indexOf(book) + 1) + " | ");
-                sb.append(book.toString());
-                sb.append("\n");
-            }
-        }
-        return sb.toString();
+        return books.getCheckedOutList();
     }
 
     public void checkoutBook(int bookId) {
-        if (bookExists(bookId)) {
-            books.get(bookId - 1).checkOut();
-        }
+        books.checkOut(bookId);
     }
 
     public boolean isBookCheckedOut(int bookId) {
-        return books.get(bookId-1).isCheckedOut();
+        return books.isCheckedOut(bookId);
     }
 
     public boolean bookExists(int bookId) {
-        return exists(books, bookId);
+        return books.exists(bookId);
     }
 
     public void checkInBook(int bookId) {
-        if (bookExists(bookId)) {
-            books.get(bookId -1).checkIn();
-        }
+        books.checkIn(bookId);
     }
 
     public void checkoutMovie(int movieId) {
-        if (movieExists(movieId)) {
-            movies.get(movieId - 1).checkOut();
-        }
+        movies.checkOut(movieId);
     }
 
     public boolean isMovieCheckedOut(int movieId) {
-        return movies.get(movieId-1).isCheckedOut();
+        return movies.isCheckedOut(movieId);
     }
 
     public boolean movieExists(int movieId) {
-        return exists(movies, movieId);
-    }
-
-    private boolean exists(ArrayList list, int movieId) {
-        try {
-            list.get(movieId - 1);
-        } catch (IndexOutOfBoundsException e) {
-            return false;
-        }
-        return true;
+        return movies.exists(movieId);
     }
 
 
     public void checkInMovie(int movieId) {
-        if (movieExists(movieId)) {
-            movies.get(movieId - 1).checkIn();
-        }
+        movies.checkIn(movieId);
     }
 
 }
