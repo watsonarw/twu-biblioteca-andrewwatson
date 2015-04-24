@@ -1,5 +1,6 @@
 package com.twu.biblioteca.library;
 
+import com.twu.biblioteca.com.twu.biblioteca.exceptions.InvalidRatingException;
 import com.twu.biblioteca.library.Movie;
 import org.junit.Test;
 
@@ -24,31 +25,27 @@ public class MovieTest {
         assertEquals(expected, titanic.toString());
     }
 
-    @Test
-    public void testMovieRatingBelowOneIsUnrated() {
+    @Test(expected = InvalidRatingException.class)
+    public void testMovieRatingBelowOneIsInvalid() {
         Movie mov = new Movie("Attack of the Killer Tomatoes!", 1978, "John De Bello", 0.99);
-        String expected = "Attack of the Killer Tomatoes! (1978) - John De Bello, unrated";
-        assertEquals(expected, mov.toString());
     }
 
     @Test
     public void testMovieRatingIsOne() {
-        Movie mov = new Movie("Attack of the Killer Tomatoes!", 1978, "John De Bello", 0.99);
-        String expected = "Attack of the Killer Tomatoes! (1978) - John De Bello, unrated";
+        Movie mov = new Movie("Attack of the Killer Tomatoes!", 1978, "John De Bello", 1.0);
+        String expected = "Attack of the Killer Tomatoes! (1978) - John De Bello, 1.0/10";
         assertEquals(expected, mov.toString());
     }
 
-    @Test
-    public void testMovieRatingAboveTenIsUnrated() {
+    @Test(expected = InvalidRatingException.class)
+    public void testMovieRatingAboveTenIsInvalid() {
         Movie mov = new Movie("The Shawshank Redemption", 1994, "Frank Darabont", 10.01);
-        String expected = "The Shawshank Redemption (1994) - Frank Darabont, unrated";
-        assertEquals(expected, mov.toString());
     }
 
     @Test
     public void testMovieRatingIsTen() {
-        Movie mov = new Movie("The Shawshank Redemption", 1994, "Frank Darabont", 10.01);
-        String expected = "The Shawshank Redemption (1994) - Frank Darabont, unrated";
+        Movie mov = new Movie("The Shawshank Redemption", 1994, "Frank Darabont", 10.0);
+        String expected = "The Shawshank Redemption (1994) - Frank Darabont, 10.0/10";
         assertEquals(expected, mov.toString());
     }
 }
