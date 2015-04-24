@@ -10,6 +10,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by watsonarw on 17/04/15.
@@ -33,7 +35,7 @@ public class ReturnBookItemTest {
         Library.getInstance().checkoutBook(2);
         TestUtilities.nextInputAs("2\n");
         ReturnBookItem.instance.action();
-        assertEquals(false, Library.getInstance().isBookCheckedOut(2));
+        assertFalse(Library.getInstance().isBookCheckedOut(2));
     }
 
     @Test
@@ -42,7 +44,7 @@ public class ReturnBookItemTest {
         TestUtilities.nextInputAs(("1\n"));
         ReturnBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(ReturnBookItem.SUCCESSFUL_RETURN_MESSAGE);
-        assertEquals(true, stringContains);
+        assertTrue(stringContains);
     }
 
     @Test

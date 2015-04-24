@@ -3,6 +3,9 @@ package com.twu.biblioteca.library;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 /**
  * Created by watsonarw on 16/04/15.
  */
@@ -42,7 +45,7 @@ public class LibraryTest {
         library.addBook("Nineteen Eighty Four", "George Orwell", 1949);
         library.addBook("Catcher in the Rye", "J.D. Salinger", 1951);
         library.checkoutBook(2);
-        assertEquals(true, library.isBookCheckedOut(2));
+        assertTrue(library.isBookCheckedOut(2));
     }
 
     @Test
@@ -52,9 +55,9 @@ public class LibraryTest {
         library.addBook("Nineteen Eighty Four", "George Orwell", 1949);
         library.addBook("Catcher in the Rye", "J.D. Salinger", 1951);
         library.checkoutBook(2);
-        assertEquals(true, library.isBookCheckedOut(2));
+        assertTrue(library.isBookCheckedOut(2));
         library.returnBook(2);
-        assertEquals(false, library.isBookCheckedOut(2));
+        assertFalse(library.isBookCheckedOut(2));
     }
 
 
@@ -106,7 +109,10 @@ public class LibraryTest {
         library.addMovie("The Godfather", 1972, "Francis Ford Coppola", 9.2);
         library.addMovie("Schindler's List", 1993, "Steven Spielberg", 8.9);
         assertEquals(" 1 | The Godfather (1972) - Francis Ford Coppola, 9.2/10\n" +
-                     " 2 | Schindler's List (1993) - Steven Spielberg, 8.9/10\n", library.getMovieList());
+                " 2 | Schindler's List (1993) - Steven Spielberg, 8.9/10\n", library.getMovieList());
     }
+
+
+
 
 }

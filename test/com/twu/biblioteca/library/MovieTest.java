@@ -4,6 +4,8 @@ import com.twu.biblioteca.com.twu.biblioteca.exceptions.InvalidRatingException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by watsonarw on 23/04/15.
@@ -53,15 +55,15 @@ public class MovieTest {
     public void testMovieCanBeCheckedOut() {
         Movie mov = new Movie("The Shawshank Redemption", 1994, "Frank Darabont", 10.0);
         mov.checkOut();
-        assertEquals(true, mov.isCheckedOut());
+        assertTrue(mov.isCheckedOut());
     }
 
     @Test
     public void testBookCanBeReturned() {
         Movie mov = new Movie("The Shawshank Redemption", 1994, "Frank Darabont", 10.0);
         mov.checkOut();
-        assertEquals(true, mov.isCheckedOut());
+        assertTrue(mov.isCheckedOut());
         mov.checkIn();
-        assertEquals(false, mov.isCheckedOut());
+        assertFalse(mov.isCheckedOut());
     }
 }

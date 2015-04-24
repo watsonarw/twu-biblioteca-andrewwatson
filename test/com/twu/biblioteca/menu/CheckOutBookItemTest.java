@@ -10,6 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by watsonarw on 17/04/15.
@@ -32,7 +33,7 @@ public class CheckOutBookItemTest {
     public void testCheckoutCommandChecksOutBook() {
         TestUtilities.nextInputAs("1\n");
         CheckOutBookItem.instance.action();
-        assertEquals(true, Library.getInstance().isBookCheckedOut(1));
+        assertTrue(Library.getInstance().isBookCheckedOut(1));
     }
 
     @Test
@@ -40,7 +41,7 @@ public class CheckOutBookItemTest {
         TestUtilities.nextInputAs(("2\n"));
         CheckOutBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.SUCCESSFUL_CHECKOUT_MESSAGE);
-        assertEquals(true, stringContains);
+        assertTrue(stringContains);
     }
 
     @Test
@@ -51,7 +52,7 @@ public class CheckOutBookItemTest {
         TestUtilities.nextInputAs(("1\n"));
         CheckOutBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.UNSUCCESSFUL_CHECKOUT_MESSAGE);
-        assertEquals(true, stringContains);
+        assertTrue(stringContains);
     }
 
 
@@ -60,7 +61,7 @@ public class CheckOutBookItemTest {
         TestUtilities.nextInputAs(("99\n"));
         CheckOutBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.UNSUCCESSFUL_CHECKOUT_MESSAGE);
-        assertEquals(true, stringContains);
+        assertTrue(stringContains);
     }
 
 }

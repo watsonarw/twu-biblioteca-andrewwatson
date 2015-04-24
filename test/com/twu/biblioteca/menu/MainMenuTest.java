@@ -11,6 +11,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -80,7 +81,7 @@ public class MainMenuTest {
         TestUtilities.nextInputAs("2\n");
         menu.handleResponse();
         boolean stringContains = outStream.toString().startsWith(CheckOutBookItem.CHECK_OUT_INSTRUCTION);
-        assertEquals(true, stringContains);
+        assertTrue(stringContains);
     }
 
     @Test
@@ -89,7 +90,7 @@ public class MainMenuTest {
         TestUtilities.nextInputAs("3\n");
         menu.handleResponse();
         boolean stringContains = outStream.toString().startsWith(ReturnBookItem.RETURN_INSTRUCTION);
-        assertEquals(true, stringContains);
+        assertTrue(stringContains);
     }
 
 
