@@ -48,4 +48,21 @@ public class MovieTest {
         String expected = "The Shawshank Redemption (1994) - Frank Darabont, 10.0/10";
         assertEquals(expected, mov.toString());
     }
+
+
+    @Test
+    public void testMovieCanBeCheckedOut() {
+        Movie mov = new Movie("The Shawshank Redemption", 1994, "Frank Darabont", 10.0);
+        mov.checkOut();
+        assertEquals(true, mov.isCheckedOut());
+    }
+
+    @Test
+    public void testBookCanBeReturned() {
+        Movie mov = new Movie("The Shawshank Redemption", 1994, "Frank Darabont", 10.0);
+        mov.checkOut();
+        assertEquals(true, mov.isCheckedOut());
+        mov.checkIn();
+        assertEquals(false, mov.isCheckedOut());
+    }
 }
