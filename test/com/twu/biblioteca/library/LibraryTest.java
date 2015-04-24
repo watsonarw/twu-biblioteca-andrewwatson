@@ -56,7 +56,7 @@ public class LibraryTest {
         library.addBook("Catcher in the Rye", "J.D. Salinger", 1951);
         library.checkoutBook(2);
         assertTrue(library.isBookCheckedOut(2));
-        library.returnBook(2);
+        library.checkInBook(2);
         assertFalse(library.isBookCheckedOut(2));
     }
 
@@ -69,7 +69,7 @@ public class LibraryTest {
         library.addBook("Catcher in the Rye", "J.D. Salinger", 1951);
         library.checkoutBook(2);
         assertEquals(" 1 | The Hobbit - J.R.R. Tolkien, 1937\n 3 | Catcher in the Rye - J.D. Salinger, 1951\n", library.getBookList());
-        library.returnBook(2);
+        library.checkInBook(2);
         assertEquals(" 1 | The Hobbit - J.R.R. Tolkien, 1937\n 2 | Nineteen Eighty Four - George Orwell, 1949\n 3 | Catcher in the Rye - J.D. Salinger, 1951\n", library.getBookList());
     }
 
@@ -92,7 +92,7 @@ public class LibraryTest {
         library.addBook("Catcher in the Rye", "J.D. Salinger", 1951);
         library.checkoutBook(2);
         library.checkoutBook(3);
-        library.returnBook(2);
+        library.checkInBook(2);
         assertEquals(" 3 | Catcher in the Rye - J.D. Salinger, 1951\n", library.getCheckedOutBookList());
     }
 
@@ -128,7 +128,7 @@ public class LibraryTest {
         library.addMovie("Schindler's List", 1993, "Steven Spielberg", 8.9);
         library.checkoutMovie(2);
         assertTrue(library.isMovieCheckedOut(2));
-        library.returnMovie(2);
+        library.checkInMovie(2);
         assertFalse(library.isMovieCheckedOut(2));
     }
 

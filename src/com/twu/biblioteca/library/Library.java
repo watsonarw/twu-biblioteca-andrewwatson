@@ -94,15 +94,10 @@ public class Library {
     }
 
     public boolean bookExists(int bookId) {
-        try {
-            books.get(bookId - 1);
-        } catch (IndexOutOfBoundsException e) {
-            return false;
-        }
-        return true;
+        return exists(books, bookId);
     }
 
-    public void returnBook(int bookId) {
+    public void checkInBook(int bookId) {
         if (bookExists(bookId)) {
             books.get(bookId -1).checkIn();
         }
@@ -119,8 +114,12 @@ public class Library {
     }
 
     public boolean movieExists(int movieId) {
+        return exists(movies, movieId);
+    }
+
+    private boolean exists(ArrayList list, int movieId) {
         try {
-            movies.get(movieId - 1);
+            list.get(movieId - 1);
         } catch (IndexOutOfBoundsException e) {
             return false;
         }
@@ -128,9 +127,9 @@ public class Library {
     }
 
 
-    public void returnMovie(int movieId) {
+    public void checkInMovie(int movieId) {
         if (movieExists(movieId)) {
-            movies.get(movieId -1).checkIn();
+            movies.get(movieId - 1).checkIn();
         }
     }
 

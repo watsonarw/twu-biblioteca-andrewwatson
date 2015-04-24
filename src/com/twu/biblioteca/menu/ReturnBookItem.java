@@ -28,7 +28,7 @@ public class ReturnBookItem extends AbstractMenuItem{
         try {
             String response = IOUtilities.readLine();
             if (bookCheckedOut(Integer.parseInt(response))) {
-                Library.getInstance().returnBook(Integer.parseInt(response));
+                Library.getInstance().checkInBook(Integer.parseInt(response));
                 IOUtilities.print(SUCCESSFUL_RETURN_MESSAGE);
             } else {
                 IOUtilities.print(UNSUCCESSFUL_RETURN_MESSAGE);
