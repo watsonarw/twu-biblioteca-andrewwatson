@@ -9,32 +9,22 @@ public class AbstractLibraryProductList<T extends AbstractLibraryProduct> extend
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (T product : this) {
-            sb.append(" " + (this.indexOf(product)) + " | ");
-            sb.append(product.toString());
-            sb.append("\n");
-        }
-        return sb.toString();
+        return getList(false, true);
     }
 
     public String getAvailableList() {
-        StringBuilder sb = new StringBuilder();
-        for(T product : this) {
-            if (!product.isCheckedOut()) {
-                sb.append(" " + (this.indexOf(product)) + " | ");
-                sb.append(product.toString());
-                sb.append("\n");
-            }
-        }
-        return sb.toString();
+        return getList(false, false);
     }
 
 
     public String getCheckedOutList() {
+        return getList(true, false);
+    }
+
+    private String getList(boolean checkedOut, boolean all) {
         StringBuilder sb = new StringBuilder();
         for(T product : this) {
-            if (product.isCheckedOut()) {
+            if ((all) || (product.isCheckedOut() == checkedOut)) {
                 sb.append(" " + (this.indexOf(product)) + " | ");
                 sb.append(product.toString());
                 sb.append("\n");
