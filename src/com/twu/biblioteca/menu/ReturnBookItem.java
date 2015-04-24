@@ -18,7 +18,7 @@ public class ReturnBookItem extends AbstractMenuItem{
     public static final String UNSUCCESSFUL_RETURN_MESSAGE = "That is not a valid book to return.\n";
 
     private ReturnBookItem() {
-        super("Return Book");
+        super("Return book");
     }
 
     @Override

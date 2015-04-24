@@ -11,7 +11,7 @@ public class ListBooksItem extends AbstractMenuItem{
     public static AbstractMenuItem instance = new ListBooksItem();
 
     private ListBooksItem() {
-        super("List Books");
+        super("List books");
     }
 
     @Override

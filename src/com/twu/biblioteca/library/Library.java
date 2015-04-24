@@ -7,8 +7,8 @@ import java.util.ArrayList;
  */
 public class Library {
     private static Library instance;
-    private AbstractLibraryProductList<Book> books = new AbstractLibraryProductList<Book>();
-    private AbstractLibraryProductList<Movie> movies = new AbstractLibraryProductList<Movie>();
+    public AbstractLibraryProductList<Book> books = new AbstractLibraryProductList<Book>();
+    public AbstractLibraryProductList<Movie> movies = new AbstractLibraryProductList<Movie>();
 
     public void setup() {
         instance.addBook("The Lord of The Rings", "J.R.R. Tolkien", 1954);

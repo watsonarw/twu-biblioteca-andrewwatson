@@ -17,7 +17,7 @@ public class CheckOutBookItem extends AbstractMenuItem{
     public static final String UNSUCCESSFUL_CHECKOUT_MESSAGE = "That book is not available.\n";
 
     private CheckOutBookItem() {
-        super("Checkout Book");
+        super("Checkout book");
     }
 
     @Override

@@ -35,11 +35,11 @@ public class MainMenuTest {
     public void testDisplayMainMenu() {
         String expected = "------ Main Menu ------\n" +
                           "Select an option below:\n" +
-                          " 1 | List Books\n" +
+                          " 1 | List books\n" +
                           " Q | Quit\n" +
-                          " 2 | Checkout Book\n" +
-                          " 3 | Return Book\n" +
-                          " 4 | List Movies\n";
+                          " 2 | Checkout book\n" +
+                          " 3 | Return book\n" +
+                          " 4 | List movies\n";
 
         MainMenu menu = MainMenu.instance;
         menu.show();

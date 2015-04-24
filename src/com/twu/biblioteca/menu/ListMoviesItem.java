@@ -11,7 +11,7 @@ public class ListMoviesItem extends AbstractMenuItem {
     public static AbstractMenuItem instance = new ListMoviesItem();
 
     private ListMoviesItem() {
-        super("List Movies");
+        super("List movies");
     }
 
     @Override

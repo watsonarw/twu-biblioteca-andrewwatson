@@ -39,7 +39,7 @@ public class CheckOutMovieItemTest {
     public void testCheckoutCommandDisplaysSuccessMessageWhenSuccessful() {
         TestUtilities.nextInputAs(("2\n"));
         CheckOutMovieItem.instance.action();
-        boolean stringContains = outStream.toString().endsWith(CheckOutMovieItem.SUCCESSFUL_CHECKOUT_MESSAGE);
+        boolean stringContains = outStream.toString().endsWith("Thank you! Enjoy the movie\n");
         assertTrue(stringContains);
     }
 
@@ -50,7 +50,7 @@ public class CheckOutMovieItemTest {
         outStream.reset();
         TestUtilities.nextInputAs(("1\n"));
         CheckOutMovieItem.instance.action();
-        boolean stringContains = outStream.toString().endsWith(CheckOutMovieItem.UNSUCCESSFUL_CHECKOUT_MESSAGE);
+        boolean stringContains = outStream.toString().endsWith("That movie is not available.\n");
         assertTrue(stringContains);
     }
 
@@ -59,7 +59,7 @@ public class CheckOutMovieItemTest {
     public void testCheckoutCommandDisplaysFailureMessageWhenMovieDoesntExist() {
         TestUtilities.nextInputAs(("99\n"));
         CheckOutMovieItem.instance.action();
-        boolean stringContains = outStream.toString().endsWith(CheckOutMovieItem.UNSUCCESSFUL_CHECKOUT_MESSAGE);
+        boolean stringContains = outStream.toString().endsWith("That movie is not available.\n");
         assertTrue(stringContains);
     }
 
