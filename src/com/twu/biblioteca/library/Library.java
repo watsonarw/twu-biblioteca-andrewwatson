@@ -108,4 +108,30 @@ public class Library {
         }
     }
 
+    public void checkoutMovie(int movieId) {
+        if (movieExists(movieId)) {
+            movies.get(movieId - 1).checkOut();
+        }
+    }
+
+    public boolean isMovieCheckedOut(int movieId) {
+        return movies.get(movieId-1).isCheckedOut();
+    }
+
+    public boolean movieExists(int movieId) {
+        try {
+            movies.get(movieId - 1);
+        } catch (IndexOutOfBoundsException e) {
+            return false;
+        }
+        return true;
+    }
+
+
+    public void returnMovie(int movieId) {
+        if (movieExists(movieId)) {
+            movies.get(movieId -1).checkIn();
+        }
+    }
+
 }
