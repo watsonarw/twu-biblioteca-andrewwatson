@@ -1,4 +1,4 @@
-package com.twu.biblioteca.menu;
+package com.twu.biblioteca.library;
 
 import com.twu.biblioteca.library.Movie;
 import org.junit.Test;
