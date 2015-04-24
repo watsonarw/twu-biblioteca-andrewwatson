@@ -112,7 +112,24 @@ public class LibraryTest {
                 " 2 | Schindler's List (1993) - Steven Spielberg, 8.9/10\n", library.getMovieList());
     }
 
+    @Test
+    public void testMovieCanBeCheckedOut() {
+        Library library = new Library();
+        library.addMovie("The Godfather", 1972, "Francis Ford Coppola", 9.2);
+        library.addMovie("Schindler's List", 1993, "Steven Spielberg", 8.9);
+        library.checkoutMovie(2);
+        assertTrue(library.isMovieCheckedOut(2));
+    }
 
-
+    @Test
+    public void testMovieCanBeReturned() {
+        Library library = new Library();
+        library.addMovie("The Godfather", 1972, "Francis Ford Coppola", 9.2);
+        library.addMovie("Schindler's List", 1993, "Steven Spielberg", 8.9);
+        library.checkoutMovie(2);
+        assertTrue(library.isMovieCheckedOut(2));
+        library.returnMovie(2);
+        assertFalse(library.isMovieCheckedOut(2));
+    }
 
 }
