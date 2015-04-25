@@ -7,7 +7,7 @@ import com.twu.biblioteca.library.Library;
 /**
  * Created by watsonarw on 24/04/15.
  */
-public class AbstractCheckOutItem extends AbstractMenuItem {
+public class AbstractCheckOutItem extends AbstractMenuItem implements LoginRequiredItem {
     public final String instruction;
     public final String successfulMessage;
     public final String unsuccessfulMessage;
@@ -28,7 +28,7 @@ public class AbstractCheckOutItem extends AbstractMenuItem {
                 list.getAvailableList());
         try {
             String response = IOUtilities.readLine();
-            if (movieAvailable(Integer.parseInt(response))) {
+            if (productAvailable(Integer.parseInt(response))) {
                 list.checkOut(Integer.parseInt(response));
                 IOUtilities.print(successfulMessage);
             } else {
@@ -39,7 +39,7 @@ public class AbstractCheckOutItem extends AbstractMenuItem {
         }
     }
 
-    private boolean movieAvailable(int movieId) {
-        return Library.getInstance().movieExists(movieId) && !Library.getInstance().isMovieCheckedOut(movieId);
+    private boolean productAvailable(int id) {
+        return list.exists(id) && !list.isCheckedOut(id);
     }
 }

@@ -40,7 +40,10 @@ public class MainMenu {
         sb.append("------ Main Menu ------\n" +
                 "Select an option below:\n");
         for (String key: menuOptions.keySet()) {
-            sb.append(" " + key + " | " + menuOptions.get(key) + "\n");
+            AbstractMenuItem item = menuOptions.get(key);
+            if(item.isAvailable()) {
+                sb.append(" " + key + " | " + item + "\n");
+            };
         }
         IOUtilities.print(sb.toString());
     }

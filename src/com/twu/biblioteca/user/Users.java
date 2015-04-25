@@ -62,6 +62,8 @@ public class Users {
         return currentUser == null ? "No user logged in" : currentUser;
     }
 
+    public boolean isUserLoggedIn() { return currentUser != null;}
+
     public void clearUsers() {
         users.clear();
     }

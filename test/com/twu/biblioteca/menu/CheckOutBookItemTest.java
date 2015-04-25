@@ -39,7 +39,7 @@ public class CheckOutBookItemTest {
     public void testCheckoutCommandDisplaysSuccessMessageWhenSuccessful() {
         TestUtilities.nextInputAs(("2\n"));
         CheckOutBookItem.instance.action();
-        boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.SUCCESSFUL_CHECKOUT_MESSAGE);
+        boolean stringContains = outStream.toString().endsWith("Thank you! Enjoy the book\n");
         assertTrue(stringContains);
     }
 
@@ -50,7 +50,7 @@ public class CheckOutBookItemTest {
         outStream.reset();
         TestUtilities.nextInputAs(("1\n"));
         CheckOutBookItem.instance.action();
-        boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.UNSUCCESSFUL_CHECKOUT_MESSAGE);
+        boolean stringContains = outStream.toString().endsWith("That book is not available.\n");
         assertTrue(stringContains);
     }
 
@@ -59,7 +59,7 @@ public class CheckOutBookItemTest {
     public void testCheckoutCommandDisplaysFailureMessageWhenBookDoesntExist() {
         TestUtilities.nextInputAs(("99\n"));
         CheckOutBookItem.instance.action();
-        boolean stringContains = outStream.toString().endsWith(CheckOutBookItem.UNSUCCESSFUL_CHECKOUT_MESSAGE);
+        boolean stringContains = outStream.toString().endsWith("That book is not available.\n");
         assertTrue(stringContains);
     }
 

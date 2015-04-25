@@ -6,7 +6,7 @@ import com.twu.biblioteca.library.Library;
 /**
  * Created by watsonarw on 17/04/15.
  */
-public class ReturnBookItem extends AbstractMenuItem{
+public class ReturnBookItem extends AbstractMenuItem implements LoginRequiredItem{
 
     public static AbstractMenuItem instance = new ReturnBookItem();
 

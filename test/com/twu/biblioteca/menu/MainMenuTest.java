@@ -1,8 +1,10 @@
 package com.twu.biblioteca.menu;
 
 import com.twu.biblioteca.TestUtilities;
+import com.twu.biblioteca.com.twu.biblioteca.exceptions.IncorrectLoginException;
 import com.twu.biblioteca.com.twu.biblioteca.exceptions.QuitAppException;
 import com.twu.biblioteca.library.Library;
+import com.twu.biblioteca.user.Users;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,26 +24,46 @@ public class MainMenuTest {
     private ByteArrayOutputStream outStream = new ByteArrayOutputStream();
 
     @Before
-    public void setupStreams() {
+    public void setup() {
         System.setOut(new PrintStream(outStream));
+        Users.instance.clearUsers();
     }
 
     @After
     public void tearDown() {
         TestUtilities.commonTearDown();
+        Users.instance.clearUsers();
     }
 
     @Test
-    public void testDisplayMainMenu() {
+    public void testDisplayMainMenuWhenLoggedIn() throws IncorrectLoginException{
+
         String expected = "------ Main Menu ------\n" +
-                          "Select an option below:\n" +
-                          " 1 | List books\n" +
-                          " Q | Quit\n" +
-                          " 2 | Checkout book\n" +
-                          " 3 | Return book\n" +
-                          " 4 | List movies\n" +
-                          " 5 | Checkout movie\n" +
-                          " L | Login\n";
+                "Select an option below:\n" +
+                " 1 | List books\n" +
+                " Q | Quit\n" +
+                " 2 | Checkout book\n" +
+                " 3 | Return book\n" +
+                " 4 | List movies\n" +
+                " 5 | Checkout movie\n" +
+                " L | Login\n";
+
+        Users.instance.addUser("123-4567", "password");
+        Users.instance.logIn("123-4567", "password");
+
+        MainMenu menu = MainMenu.instance;
+        menu.show();
+        assertEquals(expected, outStream.toString());
+    }
+
+    @Test
+    public void testDisplayMainMenuWhenNotLoggedIn() {
+        String expected = "------ Main Menu ------\n" +
+                "Select an option below:\n" +
+                " 1 | List books\n" +
+                " Q | Quit\n" +
+                " 4 | List movies\n" +
+                " L | Login\n";
 
         MainMenu menu = MainMenu.instance;
         menu.show();
@@ -82,7 +104,7 @@ public class MainMenuTest {
         MainMenu menu = MainMenu.instance;
         TestUtilities.nextInputAs("2\n");
         menu.handleResponse();
-        boolean stringContains = outStream.toString().startsWith(CheckOutBookItem.CHECK_OUT_INSTRUCTION);
+        boolean stringContains = outStream.toString().startsWith("Which book below would you like to check out:\n");
         assertTrue(stringContains);
     }
 
