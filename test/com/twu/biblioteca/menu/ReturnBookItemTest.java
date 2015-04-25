@@ -53,7 +53,7 @@ public class ReturnBookItemTest {
         TestUtilities.nextInputAs(("4\n"));
         ReturnBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(ReturnBookItem.UNSUCCESSFUL_RETURN_MESSAGE);
-        assertEquals(true, stringContains);
+        assertTrue(stringContains);
     }
 
 
@@ -62,7 +62,7 @@ public class ReturnBookItemTest {
         TestUtilities.nextInputAs(("99\n"));
         ReturnBookItem.instance.action();
         boolean stringContains = outStream.toString().endsWith(ReturnBookItem.UNSUCCESSFUL_RETURN_MESSAGE);
-        assertEquals(true, stringContains);
+        assertTrue(stringContains);
     }
 
 }

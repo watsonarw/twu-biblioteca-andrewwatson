@@ -3,8 +3,6 @@ package com.twu.biblioteca.menu;
 import com.twu.biblioteca.IOUtilities;
 import com.twu.biblioteca.library.Library;
 
-import java.io.IOException;
-
 /**
  * Created by watsonarw on 17/04/15.
  */
@@ -33,8 +31,6 @@ public class ReturnBookItem extends AbstractMenuItem{
             } else {
                 IOUtilities.print(UNSUCCESSFUL_RETURN_MESSAGE);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (NumberFormatException e2) {
 
         }

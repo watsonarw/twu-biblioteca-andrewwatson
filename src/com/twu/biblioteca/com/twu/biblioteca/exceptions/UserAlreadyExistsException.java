@@ -5,6 +5,6 @@ package com.twu.biblioteca.com.twu.biblioteca.exceptions;
  */
 public class UserAlreadyExistsException extends RuntimeException {
     public UserAlreadyExistsException(String libraryNumber) {
-        super("The user account for " + libraryNumber + "already exists.");
+        super("The user account for " + libraryNumber + " already exists.");
     }
 }

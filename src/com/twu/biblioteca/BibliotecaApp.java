@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.com.twu.biblioteca.exceptions.QuitAppException;
 import com.twu.biblioteca.menu.MainMenu;
+import com.twu.biblioteca.user.Users;
 
 public class BibliotecaApp {
 
@@ -20,6 +21,7 @@ public class BibliotecaApp {
 
     private void run() {
         displayWelcomeMessage();
+        Users.instance.setupUsers();
         menu.loop();
     }
 

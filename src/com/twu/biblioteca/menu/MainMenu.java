@@ -4,7 +4,6 @@ import com.twu.biblioteca.BibliotecaApp;
 import com.twu.biblioteca.IOUtilities;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
@@ -25,6 +24,7 @@ public class MainMenu {
         menuOptions.put("3", ReturnBookItem.instance);
         menuOptions.put("4", ListMoviesItem.instance);
         menuOptions.put("5", CheckOutMovieItem.instance);
+        menuOptions.put("L", LoginItem.instance);
     }
 
     public void loop() {
@@ -47,15 +47,11 @@ public class MainMenu {
 
     public void handleResponse() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            String response = IOUtilities.readLine();
-            if (menuOptions.containsKey(response)) {
-                menuOptions.get(response).action();
-            } else {
-                IOUtilities.print(INVALID_INPUT_MESSAGE);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        String response = IOUtilities.readLine();
+        if (menuOptions.containsKey(response)) {
+            menuOptions.get(response).action();
+        } else {
+            IOUtilities.print(INVALID_INPUT_MESSAGE);
         }
     }
 }

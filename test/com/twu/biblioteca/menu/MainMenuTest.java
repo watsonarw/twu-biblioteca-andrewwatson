@@ -40,7 +40,8 @@ public class MainMenuTest {
                           " 2 | Checkout book\n" +
                           " 3 | Return book\n" +
                           " 4 | List movies\n" +
-                          " 5 | Checkout movie\n";
+                          " 5 | Checkout movie\n" +
+                          " L | Login\n";
 
         MainMenu menu = MainMenu.instance;
         menu.show();

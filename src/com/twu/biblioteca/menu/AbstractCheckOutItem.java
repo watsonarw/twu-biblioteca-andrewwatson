@@ -4,8 +4,6 @@ import com.twu.biblioteca.IOUtilities;
 import com.twu.biblioteca.library.AbstractLibraryProductList;
 import com.twu.biblioteca.library.Library;
 
-import java.io.IOException;
-
 /**
  * Created by watsonarw on 24/04/15.
  */
@@ -36,8 +34,6 @@ public class AbstractCheckOutItem extends AbstractMenuItem {
             } else {
                 IOUtilities.print(unsuccessfulMessage);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (NumberFormatException e2) {
 
         }

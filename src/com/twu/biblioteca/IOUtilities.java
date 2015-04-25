@@ -9,8 +9,12 @@ import java.io.InputStreamReader;
  */
 public class IOUtilities {
 
-    public static String readLine() throws IOException {
-        return new BufferedReader(new InputStreamReader(System.in)).readLine();
+    public static String readLine() {
+        try {
+            return new BufferedReader(new InputStreamReader(System.in)).readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void print(String str) {

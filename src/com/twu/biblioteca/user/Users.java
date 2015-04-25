@@ -17,6 +17,12 @@ public class Users {
 
     public static final Users instance = new Users();
 
+    public void setupUsers() {
+        addUser("123-4567", "password");
+        addUser("314-1593", "circle");
+        addUser("382-4377", "guest");
+    }
+
     public void addUser(String libraryNumber, String password)
     {
        validateLibraryNumber(libraryNumber);
@@ -54,5 +60,9 @@ public class Users {
 
     public String getCurrentUser() {
         return currentUser == null ? "No user logged in" : currentUser;
+    }
+
+    public void clearUsers() {
+        users.clear();
     }
 }

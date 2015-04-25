@@ -5,6 +5,6 @@ package com.twu.biblioteca.com.twu.biblioteca.exceptions;
  */
 public class IncorrectLoginException extends Exception {
     public IncorrectLoginException() {
-        super("The library number or password you entered was not correct. Please try again.");
+        super("The library number or password you entered was not correct. Please try again.\n");
     }
 }
