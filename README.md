@@ -1,11 +1,10 @@
 #Instructions for using this program
 
-=================================================
 
 ### Depedencies
 
- 1) Java JDK8+ (Tested using JDK1.8.0_40)
- 2) IntelliJ IDEA (Tested) or other Java IDE (Untested)
+ 1. Java JDK8+ (Tested using JDK1.8.0_40)
+ 2. IntelliJ IDEA (Tested) or other Java IDE (Untested)
 
 
 ### Running the program
@@ -20,14 +19,12 @@
 
 #Notes on the Current Release
 
-=================================================
 
- 1) Movies cannot be checked in - this wasn't required by a user story, although in reality, they probably should be able to be.
+ 1. Movies cannot be checked in - this wasn't required by a user story, although in reality, they probably should be able to be.
 
 
 #User Stories
 
-=================================================
 
 ### User stories for release 2
 
