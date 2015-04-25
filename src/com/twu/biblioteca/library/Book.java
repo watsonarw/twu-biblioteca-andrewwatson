@@ -14,7 +14,8 @@ public class Book extends AbstractLibraryProduct{
 
     @Override
     public String toString() {
-        return title + " - " + author + ", " + year;
+        return title + " - " + author + ", " + year +
+                (isCheckedOut() ? ". Currently checked out by: " + getCheckOutBy() : "");
     }
 
 }
