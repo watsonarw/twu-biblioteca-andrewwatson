@@ -59,12 +59,13 @@ public class Users {
     }
 
     public String getCurrentUser() {
-        return currentUser == null ? "No user logged in" : currentUser;
+        return currentUser;
     }
 
     public boolean isUserLoggedIn() { return currentUser != null;}
 
     public void clearUsers() {
         users.clear();
+        currentUser = null;
     }
 }
