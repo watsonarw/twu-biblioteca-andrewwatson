@@ -3,8 +3,6 @@ package com.twu.biblioteca.user;
 import com.twu.biblioteca.com.twu.biblioteca.exceptions.IncorrectLoginException;
 import com.twu.biblioteca.com.twu.biblioteca.exceptions.InvalidLibraryNumberFormatException;
 import com.twu.biblioteca.com.twu.biblioteca.exceptions.UserAlreadyExistsException;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

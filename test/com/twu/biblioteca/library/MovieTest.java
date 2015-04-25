@@ -3,9 +3,7 @@ package com.twu.biblioteca.library;
 import com.twu.biblioteca.com.twu.biblioteca.exceptions.InvalidRatingException;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by watsonarw on 23/04/15.
