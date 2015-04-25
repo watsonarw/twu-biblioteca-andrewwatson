@@ -45,7 +45,7 @@ public class UsersTest {
         Users u = new Users();
         u.addUser("314-1593", "circle");
         u.logIn("314-1593", "circle");
-        assertEquals("314-1593", u.getCurrentUser());
+        assertEquals("314-1593", u.getCurrentUser().toString());
     }
 
     @Test(expected = IncorrectLoginException.class)

@@ -5,7 +5,7 @@ import com.twu.biblioteca.IOUtilities;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  * Created by watsonarw on 16/04/15.
@@ -13,18 +13,19 @@ import java.util.HashMap;
 public class MainMenu {
 
     public static MainMenu instance = new MainMenu();
-    private HashMap<String, AbstractMenuItem> menuOptions = new HashMap<String, AbstractMenuItem>();
+    private LinkedHashMap<String, AbstractMenuItem> menuOptions = new LinkedHashMap<String, AbstractMenuItem>();
 
     public static final String INVALID_INPUT_MESSAGE = "The input you've entered is invalid, please try again.\n";
 
-    private MainMenu(){
+    private MainMenu() {
         menuOptions.put("1", ListBooksItem.instance);
-        menuOptions.put("Q", QuitItem.instance);
         menuOptions.put("2", CheckOutBookItem.instance);
         menuOptions.put("3", ReturnBookItem.instance);
         menuOptions.put("4", ListMoviesItem.instance);
         menuOptions.put("5", CheckOutMovieItem.instance);
+        menuOptions.put("D", UserDetailsItem.instance);
         menuOptions.put("L", LoginItem.instance);
+        menuOptions.put("Q", QuitItem.instance);
     }
 
     public void loop() {

@@ -51,7 +51,7 @@ public class BookTest {
         Users.instance.logIn("123-4567", "password");
         Book book = new Book("To Kill a Mockingbird", "Harper Lee", 1960);
         book.checkOut();
-        assertEquals("123-4567", book.getCheckOutBy());
+        assertEquals("123-4567", book.getCheckOutBy().toString());
     }
 
     @Test
@@ -60,7 +60,7 @@ public class BookTest {
         Users.instance.logIn("123-4567", "password");
         Book book = new Book("To Kill a Mockingbird", "Harper Lee", 1960);
         book.checkOut();
-        assertEquals("123-4567", book.getCheckOutBy());
+        assertEquals("123-4567", book.getCheckOutBy().toString());
         book.checkIn();
         assertNull(book.getCheckOutBy());
     }

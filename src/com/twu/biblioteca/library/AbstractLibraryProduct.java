@@ -1,5 +1,6 @@
 package com.twu.biblioteca.library;
 
+import com.twu.biblioteca.user.User;
 import com.twu.biblioteca.user.Users;
 
 /**
@@ -10,7 +11,7 @@ public abstract class AbstractLibraryProduct {
     protected final int year;
     private boolean checkedOut = false;
 
-    private String checkOutBy;
+    private User checkOutBy;
 
     protected AbstractLibraryProduct(String title, int year) {
         this.title = title;
@@ -29,7 +30,7 @@ public abstract class AbstractLibraryProduct {
         this.checkOutBy = null;
     }
 
-    public String getCheckOutBy() {
+    public User getCheckOutBy() {
         return this.checkOutBy;
     }
 }

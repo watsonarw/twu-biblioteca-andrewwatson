@@ -41,12 +41,13 @@ public class MainMenuTest {
         String expected = "------ Main Menu ------\n" +
                 "Select an option below:\n" +
                 " 1 | List books\n" +
-                " Q | Quit\n" +
                 " 2 | Checkout book\n" +
                 " 3 | Return book\n" +
                 " 4 | List movies\n" +
                 " 5 | Checkout movie\n" +
-                " L | Login\n";
+                " D | User details\n" +
+                " L | Login\n" +
+                " Q | Quit\n";
 
         Users.instance.addUser("123-4567", "password");
         Users.instance.logIn("123-4567", "password");
@@ -61,9 +62,9 @@ public class MainMenuTest {
         String expected = "------ Main Menu ------\n" +
                 "Select an option below:\n" +
                 " 1 | List books\n" +
-                " Q | Quit\n" +
                 " 4 | List movies\n" +
-                " L | Login\n";
+                " L | Login\n" +
+                " Q | Quit\n";
 
         MainMenu menu = MainMenu.instance;
         menu.show();

@@ -12,11 +12,13 @@ public class Users {
 
     private final HashMap<String, User> users = new HashMap<String, User>();
 
-    private String currentUser;
+    private User currentUser;
 
     public static final Users instance = new Users();
 
     public void setupUsers() {
+        User defaultUser = new User("000-0000", "Default User", "admin@admin.com", "1234 5678", "guest");
+        addUser(defaultUser);
         addUser("123-4567", "password");
         addUser("314-1593", "circle");
         addUser("382-4377", "guest");
@@ -47,7 +49,7 @@ public class Users {
 
     public void logIn(String libraryNumber, String password) throws IncorrectLoginException{
         validateLogin(libraryNumber, password);
-        currentUser = libraryNumber;
+        currentUser = users.get(libraryNumber);
     }
 
     private void validateLogin(String libraryNumber, String password) throws IncorrectLoginException {
@@ -59,7 +61,7 @@ public class Users {
         }
     }
 
-    public String getCurrentUser() {
+    public User getCurrentUser() {
         return currentUser;
     }
 
