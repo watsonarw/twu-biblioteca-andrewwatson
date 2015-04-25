@@ -2,7 +2,6 @@ package com.twu.biblioteca.menu;
 
 import com.twu.biblioteca.IOUtilities;
 import com.twu.biblioteca.library.AbstractLibraryProductList;
-import com.twu.biblioteca.library.Library;
 
 /**
  * Created by watsonarw on 24/04/15.

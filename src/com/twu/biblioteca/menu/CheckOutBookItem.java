@@ -1,6 +1,5 @@
 package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.IOUtilities;
 import com.twu.biblioteca.library.Library;
 
 /**
