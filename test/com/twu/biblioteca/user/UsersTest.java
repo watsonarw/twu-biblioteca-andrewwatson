@@ -60,4 +60,20 @@ public class UsersTest {
         u.addUser("314-1593", "circle");
         u.logIn("314-1593", "square");
     }
+
+    @Test(expected = UserAlreadyExistsException.class)
+    public void testUserAccountCreationFailsWhenUserExists2() {
+        Users u = new Users();
+        u.addUser("314-1593", "circle");
+        User u2 = new User("314-1593", "Pi", "pi@maths.com", "03 1415 9265", "circle");
+        u.addUser(u2);
+    }
+
+    @Test
+    public void testUserCanBeAddedByObject() {
+        Users u = new Users();
+        User u2 = new User("314-1593", "Pi", "pi@maths.com", "03 1415 9265", "circle");
+        u.addUser(u2);
+        assertTrue(u.userExists(u2));
+    }
 }

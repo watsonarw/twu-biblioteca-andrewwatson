@@ -1,7 +1,6 @@
 package com.twu.biblioteca.user;
 
 import com.twu.biblioteca.com.twu.biblioteca.exceptions.IncorrectLoginException;
-import com.twu.biblioteca.com.twu.biblioteca.exceptions.InvalidLibraryNumberFormatException;
 import com.twu.biblioteca.com.twu.biblioteca.exceptions.UserAlreadyExistsException;
 
 import java.util.HashMap;
@@ -11,7 +10,7 @@ import java.util.HashMap;
  */
 public class Users {
 
-    private final HashMap<String, String> users = new HashMap<String, String>();
+    private final HashMap<String, User> users = new HashMap<String, User>();
 
     private String currentUser;
 
@@ -23,21 +22,23 @@ public class Users {
         addUser("382-4377", "guest");
     }
 
-    public void addUser(String libraryNumber, String password)
-    {
-       validateLibraryNumber(libraryNumber);
-       users.put(libraryNumber, password);
-
+    public void addUser(String libraryNumber, String password) {
+       addUser(new User(libraryNumber, password));
     }
 
-    private void validateLibraryNumber(String libraryNumber) {
-        if (!libraryNumber.matches("^[\\d]{3}-[\\d]{4}$")) {
-            throw new InvalidLibraryNumberFormatException(libraryNumber);
-        }
-        if (userExists(libraryNumber)) {
-            throw new UserAlreadyExistsException(libraryNumber);
-        }
+    public void addUser(User user) {
+        validateUser(user);
+        users.put(user.getLibraryNumber(), user);
+    }
 
+    private void validateUser(User user) {
+        if (userExists(user)) {
+            throw new UserAlreadyExistsException(user);
+        }
+    }
+
+    public boolean userExists(User user) {
+        return userExists(user.getLibraryNumber());
     }
 
     public boolean userExists(String libraryNumber) {
@@ -53,7 +54,7 @@ public class Users {
         if (!userExists(libraryNumber)) {
             throw new IncorrectLoginException();
         }
-        if (!users.get(libraryNumber).equals(password)) {
+        if (!users.get(libraryNumber).validate(password)) {
             throw new IncorrectLoginException();
         }
     }
